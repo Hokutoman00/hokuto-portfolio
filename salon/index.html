@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Salon de Lumière | あなたの「美しい」を、毎日に</title>
+<meta name="description" content="表参道の隠れ家サロン。最高峰の薬剤×経験10年以上のスタイリストが、あなただけの美しさをデザインします。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Noto Serif JP', serif; color: #3a2a2a; }
+.font-en { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+.hero-bg { background: linear-gradient(135deg, #fff5f0 0%, #ffd9c5 50%, #f6b8a0 100%); }
+.fade-in { animation: fadeIn 1s ease-in both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.btn-primary { background: linear-gradient(135deg, #d97757 0%, #b85d3f 100%); transition: all .3s; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(217,119,87,0.4); }
+.card { transition: all .3s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+</style>
+</head>
+<body class="bg-rose-50">
+<header class="fixed top-0 w-full bg-white/80 backdrop-blur z-50 border-b border-rose-100">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="font-en text-2xl text-rose-800">Salon de Lumière</div>
+    <div class="hidden md:flex gap-8 text-sm tracking-wider"><a href="#concept" class="hover:text-rose-700">CONCEPT</a><a href="#menu" class="hover:text-rose-700">MENU</a><a href="#stylist" class="hover:text-rose-700">STYLIST</a><a href="#access" class="hover:text-rose-700">ACCESS</a></div>
+    <a href="#reserve" class="btn-primary text-white px-5 py-2 rounded-full text-sm">予約する</a>
+  </nav>
+</header>
+<section class="hero-bg pt-28 pb-20 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div class="fade-in">
+      <p class="font-en text-rose-800 text-lg mb-3">— Hair Design Studio —</p>
+      <h1 class="text-4xl md:text-5xl leading-tight mb-6 font-medium text-rose-900">あなたの<br>「美しい」を、<br>毎日に。</h1>
+      <p class="text-rose-800/80 mb-8 leading-relaxed">表参道、緑に囲まれた隠れ家のような空間で、<br>最高峰の薬剤と経験10年以上のスタイリストが、<br>あなたにだけの美しさをデザインします。</p>
+      <div class="flex gap-4 flex-wrap"><a href="#reserve" class="btn-primary text-white px-8 py-3 rounded-full">初回限定 ¥4,900</a><a href="tel:0312345678" class="px-8 py-3 rounded-full border border-rose-700 text-rose-700 hover:bg-rose-50">03-1234-5678</a></div>
+    </div>
+    <div class="fade-in"><div class="aspect-square bg-gradient-to-br from-rose-200 via-orange-200 to-rose-300 rounded-3xl shadow-2xl flex items-center justify-center text-9xl">💇‍♀️</div></div>
+  </div>
+</section>
+<section id="concept" class="py-24 px-6 bg-white"><div class="max-w-5xl mx-auto text-center"><p class="font-en text-rose-700 mb-2">— Concept —</p><h2 class="text-3xl md:text-4xl mb-8 font-medium">あなただけの一着のように、髪をしつらえる。</h2><p class="text-gray-700 leading-loose max-w-3xl mx-auto">Salon de Lumière は、「あなたらしさ」を最大化するためのサロンです。<br>流行を追うだけではなく、骨格・髪質・ライフスタイルから、<br>あなたにとっての「一生もののスタイル」を一緒に見つけていきます。</p></div></section>
+<section id="menu" class="py-24 px-6 bg-rose-50">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-en text-rose-700 text-center mb-2">— Menu —</p>
+    <h2 class="text-3xl md:text-4xl text-center mb-16 font-medium">特別なメニュー</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card bg-white p-8 rounded-2xl"><div class="text-5xl mb-4">✂️</div><h3 class="text-xl mb-3 font-medium">プレミアムカット</h3><p class="text-gray-600 text-sm mb-4">骨格診断 + 顔立ち診断付き。あなたに最適なフォルムを設計します。</p><p class="text-rose-700 font-medium">¥8,800〜</p></div>
+      <div class="card bg-white p-8 rounded-2xl"><div class="text-5xl mb-4">🌿</div><h3 class="text-xl mb-3 font-medium">オーガニックカラー</h3><p class="text-gray-600 text-sm mb-4">頭皮にやさしい有機由来 95% のカラー剤。妊娠中・敏感肌の方も安心。</p><p class="text-rose-700 font-medium">¥12,000〜</p></div>
+      <div class="card bg-white p-8 rounded-2xl"><div class="text-5xl mb-4">💧</div><h3 class="text-xl mb-3 font-medium">髪質改善トリートメント</h3><p class="text-gray-600 text-sm mb-4">アミノ酸×ケラチン補修。3 ヶ月続けると別人の手触り。</p><p class="text-rose-700 font-medium">¥14,800〜</p></div>
+    </div>
+  </div>
+</section>
+<section id="stylist" class="py-24 px-6 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <p class="font-en text-rose-700 text-center mb-2">— Stylist —</p>
+    <h2 class="text-3xl md:text-4xl text-center mb-16 font-medium">スタイリスト紹介</h2>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="aspect-square bg-gradient-to-br from-rose-300 to-orange-300 rounded-3xl shadow-xl flex items-center justify-center text-9xl">👩‍🦰</div>
+      <div>
+        <p class="font-en text-rose-700 text-xl mb-1">Sayaka Aoyama</p>
+        <h3 class="text-2xl mb-4 font-medium">青山 紗也加 / Top Stylist</h3>
+        <p class="text-gray-700 leading-loose mb-6">経験 12 年、銀座 / 表参道の名店を経て独立。<br>『その人らしさを最大化する』をモットーに、<br>骨格と髪質を読み解いた本質的なデザインが評判。<br>雑誌 VOGUE JAPAN・Hair Mode 掲載多数。</p>
+        <p class="text-sm text-rose-700">月間指名予約：80 名超 / リピート率 92%</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="access" class="py-24 px-6 hero-bg">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+    <div><p class="font-en text-rose-800 mb-2">— Access —</p><h2 class="text-3xl mb-6 font-medium">アクセス</h2><p class="text-rose-900 mb-2">〒107-0061</p><p class="text-rose-900 mb-2">東京都港区北青山 3-5-12 ルミエール表参道 2F</p><p class="text-rose-900 mb-6">表参道駅 A4 出口 徒歩 3 分</p><p class="text-rose-900">営業時間 10:00 - 20:00 / 火曜定休</p></div>
+    <div id="reserve" class="bg-white/80 backdrop-blur p-8 rounded-2xl shadow-xl"><h3 class="text-2xl mb-4 font-medium text-rose-900">ご予約</h3><p class="text-sm text-rose-800/80 mb-6">初回限定 ¥4,900 (カット + シャンプー + ブロー)</p><a href="#" class="btn-primary block text-white text-center py-3 rounded-full mb-3">オンライン予約</a><a href="tel:0312345678" class="block text-center py-3 border border-rose-700 text-rose-700 rounded-full">03-1234-5678</a></div>
+  </div>
+</section>
+<footer class="bg-rose-900 text-rose-100 py-12 px-6"><div class="max-w-6xl mx-auto text-center"><p class="font-en text-2xl mb-4">Salon de Lumière</p><p class="text-sm opacity-70 mb-2">表参道の隠れ家、あなたの美しさをデザインします。</p><p class="text-xs opacity-50">© 2026 Salon de Lumière. All rights reserved. — Designed by 北斗</p></div></footer>
+</body>
+</html>
