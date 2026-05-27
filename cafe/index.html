@@ -4,126 +4,380 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Cafe Kotori | 鎌倉、海と緑のあいだの隠れ家カフェ</title>
-<meta name="description" content="鎌倉・由比ヶ浜から徒歩 7 分。自家焙煎スペシャルティコーヒーと、季節の野菜を使った焼き菓子の店。">
+<meta name="description" content="鎌倉・由比ヶ浜から徒歩 7 分。築 80 年の古民家で、自家焙煎スペシャルティコーヒーと、季節の野菜を使った焼き菓子をご用意しています。">
+<meta property="og:title" content="Cafe Kotori | 鎌倉の古民家カフェ">
+<meta property="og:description" content="鎌倉、海と緑のあいだの小さな隠れ家カフェ。築 80 年の古民家で、自家焙煎コーヒーと季節の焼き菓子。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://hokuto-portfolio.vercel.app/images/cafe-hero.jpg">
+<meta property="og:url" content="https://hokuto-portfolio.vercel.app/cafe/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cafe Kotori">
+<meta name="twitter:description" content="鎌倉の古民家カフェ。海と緑のあいだの小さな隠れ家。">
+<meta name="twitter:image" content="https://hokuto-portfolio.vercel.app/images/cafe-hero.jpg">
+<link rel="canonical" href="https://hokuto-portfolio.vercel.app/cafe/">
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Noto Serif JP', serif; color: #3e2c1f; background: #faf5ee; }
-.font-en { font-family: 'Playfair Display', serif; font-style: italic; }
-.btn-primary { background: #8b5a3c; transition: all .3s; }
-.btn-primary:hover { background: #6f4530; transform: translateY(-2px); }
-.hero-overlay { background: linear-gradient(180deg, rgba(62,44,31,0) 0%, rgba(62,44,31,0.4) 100%); }
-.card { transition: all .3s; }
-.card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(62,44,31,0.12); }
-.bean-bg { background: radial-gradient(ellipse at center, #d4a574 0%, #8b5a3c 100%); }
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: 'Noto Serif JP', serif; color: #3e2c1f; background: #faf5ee; letter-spacing: 0.02em; line-height: 1.8; }
+.font-en { font-family: 'Playfair Display', serif; font-style: italic; letter-spacing: 0.04em; }
+.font-en-bold { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: 0.04em; }
+.hero-bg {
+  background-image: linear-gradient(180deg, rgba(62,44,31,0.2) 0%, rgba(62,44,31,0.55) 100%), url('../images/cafe-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: #8b5a3c;
+}
+.btn-primary {
+  background: #8b5a3c;
+  transition: all .4s cubic-bezier(.16,1,.3,1);
+  box-shadow: 0 8px 20px rgba(139,90,60,0.3);
+}
+.btn-primary:hover {
+  background: #6f4530;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(111,69,48,0.4);
+}
+.card {
+  transition: all .4s cubic-bezier(.16,1,.3,1);
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 24px 48px rgba(62,44,31,0.12); }
+.deco-line { display: inline-block; width: 50px; height: 1px; background: currentColor; vertical-align: middle; margin: 0 14px; opacity: 0.6; }
+.menu-divider { background: linear-gradient(90deg, transparent, rgba(139,90,60,0.3), transparent); height: 1px; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s ease-out, transform .9s cubic-bezier(.16,1,.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .15s; }
+.reveal-delay-2 { transition-delay: .3s; }
+.reveal-delay-3 { transition-delay: .45s; }
+.fade-up { animation: fadeUp 1.2s cubic-bezier(.16,1,.3,1) both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
-<header class="fixed top-0 w-full bg-amber-50/80 backdrop-blur z-50 border-b border-amber-200/50">
-  <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="font-en text-2xl text-amber-900">Cafe Kotori</div>
-    <div class="hidden md:flex gap-8 text-sm tracking-wider text-amber-900"><a href="#about" class="hover:text-amber-700">ABOUT</a><a href="#menu" class="hover:text-amber-700">MENU</a><a href="#gallery" class="hover:text-amber-700">GALLERY</a><a href="#access" class="hover:text-amber-700">ACCESS</a></div>
+
+<header class="fixed top-0 w-full bg-amber-50/85 backdrop-blur-md z-50 border-b border-amber-200/40">
+  <nav class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+    <div>
+      <div class="font-en text-2xl text-amber-900">Cafe Kotori</div>
+      <div class="text-[10px] text-amber-700/60 tracking-[0.2em] mt-1">— KAMAKURA —</div>
+    </div>
+    <div class="hidden md:flex gap-10 text-xs tracking-widest text-amber-900/80">
+      <a href="#about" class="hover:text-amber-700 transition">ABOUT</a>
+      <a href="#menu" class="hover:text-amber-700 transition">MENU</a>
+      <a href="#voice" class="hover:text-amber-700 transition">VOICE</a>
+      <a href="#faq" class="hover:text-amber-700 transition">FAQ</a>
+      <a href="#access" class="hover:text-amber-700 transition">ACCESS</a>
+    </div>
   </nav>
 </header>
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
-  <div class="absolute inset-0 bean-bg"></div>
-  <div class="absolute inset-0 hero-overlay"></div>
-  <div class="relative z-10 text-center text-white px-6 max-w-3xl">
-    <p class="font-en text-2xl md:text-3xl mb-4 opacity-90">— Welcome to —</p>
-    <h1 class="text-5xl md:text-7xl mb-8 leading-tight font-medium">Cafe Kotori</h1>
-    <p class="text-lg md:text-xl leading-relaxed opacity-95 mb-10">鎌倉、海と緑のあいだの<br>小さな隠れ家カフェ</p>
-    <a href="#menu" class="inline-block bg-white/20 backdrop-blur border border-white/40 hover:bg-white/30 text-white px-10 py-4 rounded-full">メニューを見る</a>
+
+<section class="relative h-screen flex items-center justify-center overflow-hidden hero-bg">
+  <div class="relative z-10 text-center text-white px-6 max-w-3xl fade-up">
+    <p class="font-en text-2xl md:text-3xl mb-6 opacity-90"><span class="deco-line"></span>Welcome to<span class="deco-line"></span></p>
+    <h1 class="text-6xl md:text-8xl mb-10 leading-none font-en-bold">Cafe Kotori</h1>
+    <p class="text-lg md:text-xl leading-loose opacity-95 mb-12">
+      鎌倉、海と緑のあいだの<br>
+      小さな隠れ家カフェ
+    </p>
+    <a href="#menu" class="inline-block bg-white/15 backdrop-blur-md border border-white/40 hover:bg-white/25 text-white px-12 py-4 rounded-full text-base tracking-wide transition">
+      メニューを見る
+    </a>
   </div>
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-3xl animate-bounce">↓</div>
 </section>
-<section id="about" class="py-24 px-6">
-  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-    <div>
-      <p class="font-en text-amber-700 mb-3 text-xl">— Story —</p>
-      <h2 class="text-3xl md:text-4xl mb-6 leading-snug font-medium">小鳥が遊びにくる、<br>静かなカフェ。</h2>
-      <p class="text-amber-900/80 leading-loose mb-4">Cafe Kotori は、鎌倉・由比ヶ浜のすぐ近くにある、小さな築 80 年の古民家カフェです。</p>
-      <p class="text-amber-900/80 leading-loose mb-4">毎朝、自分で焙煎したスペシャルティコーヒーと、地元の農家さんから届く季節の野菜・果物を使った焼き菓子を、ゆっくりお楽しみいただけます。</p>
-      <p class="text-amber-900/80 leading-loose">散歩の途中、本を読みに、ひとりの時間に。<br>どうぞ、肩の力を抜きにいらしてください。</p>
+
+<section id="about" class="py-32 px-6">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div class="reveal">
+      <p class="font-en text-amber-700 mb-4 text-xl"><span class="deco-line"></span>Story<span class="deco-line"></span></p>
+      <h2 class="text-3xl md:text-5xl mb-8 leading-snug font-medium">小鳥が遊びにくる、<br>静かなカフェ。</h2>
+      <p class="text-amber-900/80 leading-loose mb-5">
+        Cafe Kotori は、鎌倉・由比ヶ浜のすぐ近くにある、小さな築 80 年の古民家カフェです。
+      </p>
+      <p class="text-amber-900/80 leading-loose mb-5">
+        毎朝、自分で焙煎したスペシャルティコーヒーと、地元の農家さんから届く季節の野菜・果物を使った焼き菓子を、ゆっくりお楽しみいただけます。
+      </p>
+      <p class="text-amber-900/80 leading-loose">
+        散歩の途中、本を読みに、ひとりの時間に。<br>
+        どうぞ、肩の力を抜きにいらしてください。
+      </p>
     </div>
-    <div class="aspect-[4/5] bg-gradient-to-br from-amber-300 via-amber-500 to-amber-800 rounded-3xl shadow-2xl flex items-center justify-center text-9xl">☕</div>
+    <div class="reveal reveal-delay-1">
+      <div class="aspect-[4/5] bg-gradient-to-br from-amber-300 via-amber-500 to-amber-800 rounded-3xl shadow-2xl flex items-center justify-center text-[10rem] relative overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center opacity-90" style="background-image: url('../images/cafe-coffee.jpg');"></div>
+        <span class="relative z-10 opacity-0">☕</span>
+      </div>
+    </div>
   </div>
 </section>
-<section id="menu" class="py-24 px-6 bg-amber-100/40">
+
+<section id="menu" class="py-32 px-6 bg-amber-100/40">
   <div class="max-w-6xl mx-auto">
-    <p class="font-en text-amber-700 text-center mb-2 text-xl">— Menu —</p>
-    <h2 class="text-3xl md:text-4xl text-center mb-16 font-medium">本日のメニュー</h2>
-    <div class="grid md:grid-cols-2 gap-8 mb-16">
-      <div class="card bg-white p-8 rounded-2xl">
+    <div class="text-center mb-20">
+      <p class="font-en text-amber-700 mb-4 text-xl reveal"><span class="deco-line"></span>Menu<span class="deco-line"></span></p>
+      <h2 class="text-3xl md:text-5xl mb-4 font-medium reveal">本日のメニュー</h2>
+      <p class="text-amber-800/60 reveal reveal-delay-1">月ごとに少しずつ入れ替わります</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 mb-12">
+      <div class="card bg-white p-12 rounded-2xl reveal">
         <p class="font-en text-amber-700 text-sm mb-2">— Coffee —</p>
-        <h3 class="text-2xl mb-6 font-medium">スペシャルティコーヒー</h3>
-        <div class="space-y-3 text-sm">
-          <div class="flex justify-between"><span>本日のドリップ (3 種から選べる)</span><span class="text-amber-700 font-medium">¥600</span></div>
-          <div class="flex justify-between"><span>カフェラテ</span><span class="text-amber-700 font-medium">¥650</span></div>
-          <div class="flex justify-between"><span>カフェ ボワット (店主オリジナル)</span><span class="text-amber-700 font-medium">¥780</span></div>
-          <div class="flex justify-between"><span>季節のフルーツソーダ</span><span class="text-amber-700 font-medium">¥720</span></div>
+        <h3 class="text-2xl mb-8 font-medium">スペシャルティコーヒー</h3>
+        <div class="space-y-5 text-sm">
+          <div>
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="font-medium">本日のドリップ</span>
+              <span class="text-amber-700 font-medium text-base">¥600</span>
+            </div>
+            <p class="text-xs text-amber-800/60">3 種類から選べる本日の豆 / 浅煎り・中煎り・深煎り</p>
+          </div>
+          <div class="menu-divider"></div>
+          <div>
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="font-medium">カフェラテ</span>
+              <span class="text-amber-700 font-medium text-base">¥650</span>
+            </div>
+            <p class="text-xs text-amber-800/60">湘南の牧場から届く牛乳で</p>
+          </div>
+          <div class="menu-divider"></div>
+          <div>
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="font-medium">カフェ ボワット</span>
+              <span class="text-amber-700 font-medium text-base">¥780</span>
+            </div>
+            <p class="text-xs text-amber-800/60">店主オリジナル / シナモンと黒糖のホットコーヒー</p>
+          </div>
+          <div class="menu-divider"></div>
+          <div>
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="font-medium">季節のフルーツソーダ</span>
+              <span class="text-amber-700 font-medium text-base">¥720</span>
+            </div>
+            <p class="text-xs text-amber-800/60">本日: 葉山の苺と檸檬</p>
+          </div>
         </div>
       </div>
-      <div class="card bg-white p-8 rounded-2xl">
+      <div class="card bg-white p-12 rounded-2xl reveal reveal-delay-1">
         <p class="font-en text-amber-700 text-sm mb-2">— Sweets —</p>
-        <h3 class="text-2xl mb-6 font-medium">焼き菓子・スイーツ</h3>
-        <div class="space-y-3 text-sm">
-          <div class="flex justify-between"><span>カヌレ (鎌倉野菜)</span><span class="text-amber-700 font-medium">¥420</span></div>
-          <div class="flex justify-between"><span>季節のタルト (本日: 苺と紅茶)</span><span class="text-amber-700 font-medium">¥680</span></div>
-          <div class="flex justify-between"><span>古民家のチーズケーキ</span><span class="text-amber-700 font-medium">¥620</span></div>
-          <div class="flex justify-between"><span>スコーンと自家製クロテッドクリーム</span><span class="text-amber-700 font-medium">¥780</span></div>
+        <h3 class="text-2xl mb-8 font-medium">焼き菓子・スイーツ</h3>
+        <div class="space-y-5 text-sm">
+          <div>
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="font-medium">カヌレ</span>
+              <span class="text-amber-700 font-medium text-base">¥420</span>
+            </div>
+            <p class="text-xs text-amber-800/60">鎌倉野菜の天然甘味 / 焼きたて</p>
+          </div>
+          <div class="menu-divider"></div>
+          <div>
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="font-medium">季節のタルト</span>
+              <span class="text-amber-700 font-medium text-base">¥680</span>
+            </div>
+            <p class="text-xs text-amber-800/60">本日: 苺と紅茶のタルト</p>
+          </div>
+          <div class="menu-divider"></div>
+          <div>
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="font-medium">古民家のチーズケーキ</span>
+              <span class="text-amber-700 font-medium text-base">¥620</span>
+            </div>
+            <p class="text-xs text-amber-800/60">湘南の濃厚クリームチーズ + レモンの香り</p>
+          </div>
+          <div class="menu-divider"></div>
+          <div>
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="font-medium">スコーン + 自家製クロテッドクリーム</span>
+              <span class="text-amber-700 font-medium text-base">¥780</span>
+            </div>
+            <p class="text-xs text-amber-800/60">英国式 / プレーン or 紅茶</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="text-center">
+
+    <div class="text-center max-w-2xl mx-auto reveal reveal-delay-2">
       <p class="text-sm text-amber-800/70 mb-2">※ メニューは月ごとに少しずつ入れ替わります</p>
       <p class="text-sm text-amber-800/70">※ Instagram で毎週の本日メニューをご案内しています</p>
     </div>
   </div>
 </section>
-<section id="gallery" class="py-24 px-6">
+
+<section id="voice" class="py-32 px-6 bg-amber-50">
   <div class="max-w-6xl mx-auto">
-    <p class="font-en text-amber-700 text-center mb-2 text-xl">— Gallery —</p>
-    <h2 class="text-3xl md:text-4xl text-center mb-16 font-medium">店内のようす</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="aspect-square bg-gradient-to-br from-amber-200 to-amber-500 rounded-2xl flex items-center justify-center text-6xl">☕</div>
-      <div class="aspect-square bg-gradient-to-br from-amber-300 to-orange-600 rounded-2xl flex items-center justify-center text-6xl">🥐</div>
-      <div class="aspect-square bg-gradient-to-br from-orange-200 to-amber-700 rounded-2xl flex items-center justify-center text-6xl">🍰</div>
-      <div class="aspect-square bg-gradient-to-br from-amber-400 to-orange-800 rounded-2xl flex items-center justify-center text-6xl">🌿</div>
-      <div class="aspect-square bg-gradient-to-br from-orange-300 to-amber-600 rounded-2xl flex items-center justify-center text-6xl">📖</div>
-      <div class="aspect-square bg-gradient-to-br from-amber-200 to-amber-700 rounded-2xl flex items-center justify-center text-6xl">🍂</div>
-      <div class="aspect-square bg-gradient-to-br from-amber-500 to-orange-700 rounded-2xl flex items-center justify-center text-6xl">🐦</div>
-      <div class="aspect-square bg-gradient-to-br from-orange-400 to-amber-800 rounded-2xl flex items-center justify-center text-6xl">🏠</div>
+    <div class="text-center mb-20">
+      <p class="font-en text-amber-700 mb-4 text-xl reveal"><span class="deco-line"></span>Voice<span class="deco-line"></span></p>
+      <h2 class="text-3xl md:text-5xl mb-4 font-medium reveal">お客様の声</h2>
+      <p class="text-amber-800/60 reveal reveal-delay-1">ふらりと来てくださる方々から</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card bg-white p-10 rounded-2xl reveal">
+        <p class="text-amber-700 text-5xl font-en font-bold leading-none mb-4 opacity-50">"</p>
+        <p class="text-amber-900/80 leading-relaxed mb-6 text-sm">
+          海を見に来た帰りに偶然見つけて、それから月 1 回は通っています。本を読みながら過ごす午後の時間が、唯一のリセットです。
+        </p>
+        <div class="flex items-center gap-4 pt-6 border-t border-amber-100">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-200 to-amber-500"></div>
+          <div>
+            <p class="font-medium text-sm">N さん / 横浜在住</p>
+            <p class="text-xs text-amber-800/60">月 1-2 回 ご来店 / 2 年</p>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-white p-10 rounded-2xl reveal reveal-delay-1">
+        <p class="text-amber-700 text-5xl font-en font-bold leading-none mb-4 opacity-50">"</p>
+        <p class="text-amber-900/80 leading-relaxed mb-6 text-sm">
+          スペシャルティコーヒーが本格的なのに、雰囲気が気取らない。店主さんが豆の話を楽しそうにしてくれるのも嬉しいです。
+        </p>
+        <div class="flex items-center gap-4 pt-6 border-t border-amber-100">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-300 to-orange-500"></div>
+          <div>
+            <p class="font-medium text-sm">M さん / 都内在住</p>
+            <p class="text-xs text-amber-800/60">休日の散策で / 1 年</p>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-white p-10 rounded-2xl reveal reveal-delay-2">
+        <p class="text-amber-700 text-5xl font-en font-bold leading-none mb-4 opacity-50">"</p>
+        <p class="text-amber-900/80 leading-relaxed mb-6 text-sm">
+          季節のタルトを楽しみに通っています。地元の野菜と果物を使ったメニューが多くて、いつも違う味に出会えます。
+        </p>
+        <div class="flex items-center gap-4 pt-6 border-t border-amber-100">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-300 to-amber-600"></div>
+          <div>
+            <p class="font-medium text-sm">Y さん / 鎌倉在住</p>
+            <p class="text-xs text-amber-800/60">常連 / 3 年</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<section id="access" class="py-24 px-6 bg-amber-900 text-amber-50">
-  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-    <div>
-      <p class="font-en text-amber-300 mb-3 text-xl">— Access —</p>
-      <h2 class="text-3xl mb-6 font-medium">ご来店情報</h2>
+
+<section class="py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-en text-amber-700 text-center mb-4 text-xl reveal"><span class="deco-line"></span>Gallery<span class="deco-line"></span></p>
+    <h2 class="text-3xl md:text-5xl text-center mb-16 font-medium reveal">店内のようす</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="aspect-square bg-gradient-to-br from-amber-200 to-amber-500 rounded-2xl flex items-center justify-center text-6xl reveal">☕</div>
+      <div class="aspect-square bg-gradient-to-br from-amber-300 to-orange-600 rounded-2xl flex items-center justify-center text-6xl reveal reveal-delay-1">🥐</div>
+      <div class="aspect-square bg-gradient-to-br from-orange-200 to-amber-700 rounded-2xl flex items-center justify-center text-6xl reveal reveal-delay-2">🍰</div>
+      <div class="aspect-square bg-gradient-to-br from-amber-400 to-orange-800 rounded-2xl flex items-center justify-center text-6xl reveal reveal-delay-3">🌿</div>
+      <div class="aspect-square bg-gradient-to-br from-orange-300 to-amber-600 rounded-2xl flex items-center justify-center text-6xl reveal">📖</div>
+      <div class="aspect-square bg-gradient-to-br from-amber-200 to-amber-700 rounded-2xl flex items-center justify-center text-6xl reveal reveal-delay-1">🍂</div>
+      <div class="aspect-square bg-gradient-to-br from-amber-500 to-orange-700 rounded-2xl flex items-center justify-center text-6xl reveal reveal-delay-2">🐦</div>
+      <div class="aspect-square bg-gradient-to-br from-orange-400 to-amber-800 rounded-2xl flex items-center justify-center text-6xl reveal reveal-delay-3">🏠</div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="py-32 px-6 bg-amber-50">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="font-en text-amber-700 mb-4 text-xl reveal"><span class="deco-line"></span>FAQ<span class="deco-line"></span></p>
+      <h2 class="text-3xl md:text-5xl font-medium reveal">よくあるご質問</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-white rounded-xl reveal" open>
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>予約はできますか?</span>
+          <span class="text-amber-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-amber-900/70 text-sm leading-relaxed">
+          原則ご予約は承っておりませんが、3 名以上のご利用の場合のみ、Instagram DM にてご相談ください。
+        </div>
+      </details>
+      <details class="group bg-white rounded-xl reveal">
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>お子様連れでも大丈夫ですか?</span>
+          <span class="text-amber-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-amber-900/70 text-sm leading-relaxed">
+          1 階のみお子様連れ OK です (4 席)。ベビーカーは入口にてお預かりいたします。
+        </div>
+      </details>
+      <details class="group bg-white rounded-xl reveal">
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>テイクアウトはできますか?</span>
+          <span class="text-amber-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-amber-900/70 text-sm leading-relaxed">
+          コーヒー類のみテイクアウトに対応しています。マイカップ持参で ¥50 引きいたします。
+        </div>
+      </details>
+      <details class="group bg-white rounded-xl reveal">
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>WiFi はありますか?</span>
+          <span class="text-amber-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-amber-900/70 text-sm leading-relaxed">
+          WiFi はあえてご用意しておりません。デジタルから少し離れた時間をお楽しみいただければ嬉しいです。
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="access" class="py-32 px-6 bg-amber-900 text-amber-50 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-amber-700/20 rounded-full blur-3xl"></div>
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 relative">
+    <div class="reveal">
+      <p class="font-en text-amber-300 mb-4 text-xl"><span class="deco-line"></span>Access<span class="deco-line"></span></p>
+      <h2 class="text-3xl md:text-4xl mb-10 font-medium">ご来店情報</h2>
       <div class="space-y-4 text-amber-100">
         <p>〒248-0014</p>
         <p>神奈川県鎌倉市由比ヶ浜 3-12-8</p>
         <p>江ノ電「由比ヶ浜」駅 徒歩 7 分</p>
-        <p class="pt-4">営業時間 10:00 - 18:00</p>
+        <p class="pt-4 border-t border-amber-700/40 mt-6">営業時間 10:00 - 18:00</p>
         <p>定休日: 火曜・水曜</p>
         <p class="pt-4 text-sm opacity-70">※ 1 階 4 席・2 階 8 席の小さな店です。<br>※ 混雑時はお待ちいただく場合があります。</p>
       </div>
     </div>
-    <div>
-      <h3 class="text-xl mb-4 font-medium">SNS</h3>
+    <div class="reveal reveal-delay-1">
+      <h3 class="text-2xl mb-6 font-medium font-en">SNS</h3>
       <div class="space-y-3">
-        <a href="#" class="flex items-center gap-3 bg-amber-50/10 hover:bg-amber-50/20 p-4 rounded-xl transition"><span class="text-2xl">📷</span><span>Instagram @cafe_kotori_kamakura</span></a>
-        <a href="#" class="flex items-center gap-3 bg-amber-50/10 hover:bg-amber-50/20 p-4 rounded-xl transition"><span class="text-2xl">🐦</span><span>X (Twitter) @cafe_kotori</span></a>
+        <a href="#" class="flex items-center gap-4 bg-amber-50/10 hover:bg-amber-50/20 p-5 rounded-xl transition group">
+          <span class="text-3xl">📷</span>
+          <div>
+            <p class="font-medium">Instagram</p>
+            <p class="text-xs opacity-70">@cafe_kotori_kamakura</p>
+          </div>
+          <span class="ml-auto opacity-50 group-hover:opacity-100 transition">→</span>
+        </a>
+        <a href="#" class="flex items-center gap-4 bg-amber-50/10 hover:bg-amber-50/20 p-5 rounded-xl transition group">
+          <span class="text-3xl">🐦</span>
+          <div>
+            <p class="font-medium">X (Twitter)</p>
+            <p class="text-xs opacity-70">@cafe_kotori</p>
+          </div>
+          <span class="ml-auto opacity-50 group-hover:opacity-100 transition">→</span>
+        </a>
       </div>
-      <p class="text-sm text-amber-300/80 mt-6">毎週の本日メニューと、小鳥の写真をご案内しています。</p>
+      <p class="text-sm text-amber-300/80 mt-8 leading-relaxed">
+        毎週の本日メニューと、小鳥の写真をご案内しています。<br>
+        ご来店前に、ぜひ覗いてみてください。
+      </p>
     </div>
   </div>
 </section>
-<footer class="bg-amber-950 text-amber-200 py-10 px-6 text-center">
-  <p class="font-en text-2xl mb-3">Cafe Kotori</p>
-  <p class="text-sm opacity-70 mb-2">鎌倉、海と緑のあいだの隠れ家カフェ</p>
+
+<footer class="bg-amber-950 text-amber-200 py-12 px-6 text-center">
+  <p class="font-en text-3xl mb-4">Cafe Kotori</p>
+  <p class="text-sm opacity-70 mb-3">鎌倉、海と緑のあいだの隠れ家カフェ</p>
   <p class="text-xs opacity-50">© 2026 Cafe Kotori. All rights reserved. — Designed by 北斗</p>
 </footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>

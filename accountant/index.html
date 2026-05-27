@@ -3,100 +3,442 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>山田税理士事務所 | 中小企業の「攻めの経理」を、伴走で。</title>
-<meta name="description" content="創業 20 年。中小企業 200 社以上の財務を支えてきた税理士事務所。AI 活用で月次決算を 5 営業日以内に完了。">
+<title>山田税理士事務所 | 中小企業の「攻めの経理」を伴走で</title>
+<meta name="description" content="創業 20 年。中小企業 200 社以上の財務を支える税理士事務所。AI 活用で月次決算を 5 営業日以内に完了。資金繰り・補助金・事業承継までパートナーとして伴走します。">
+<meta property="og:title" content="山田税理士事務所 | 中小企業の「攻めの経理」を伴走で">
+<meta property="og:description" content="創業 20 年・顧問契約 200 社超。AI 活用で月次決算を 5 営業日以内に完了する税理士事務所。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://hokuto-portfolio.vercel.app/images/accountant-hero.jpg">
+<meta property="og:url" content="https://hokuto-portfolio.vercel.app/accountant/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="山田税理士事務所">
+<meta name="twitter:description" content="創業 20 年。AI 活用で月次決算を 5 営業日以内に完了。">
+<meta name="twitter:image" content="https://hokuto-portfolio.vercel.app/images/accountant-hero.jpg">
+<link rel="canonical" href="https://hokuto-portfolio.vercel.app/accountant/">
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Noto Sans JP', sans-serif; color: #1a2332; -webkit-font-smoothing: antialiased; }
-.font-en { font-family: 'Inter', sans-serif; }
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: 'Noto Sans JP', sans-serif; color: #1a2332; letter-spacing: 0.01em; line-height: 1.7; }
+.font-en { font-family: 'Inter', sans-serif; letter-spacing: 0.02em; }
 .gradient-text { background: linear-gradient(135deg, #1e3a8a, #0ea5e9); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.btn-primary { background: linear-gradient(135deg, #1e3a8a, #0ea5e9); transition: all .3s; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(30,58,138,0.3); }
-.card { transition: all .3s; }
-.card:hover { transform: translateY(-4px); }
-.hero-pattern { background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); background-image: radial-gradient(circle at 1px 1px, rgba(30,58,138,0.05) 1px, transparent 0); background-size: 20px 20px; }
+.hero-bg {
+  background-image: linear-gradient(110deg, rgba(15,23,42,0.85) 0%, rgba(30,58,138,0.75) 50%, rgba(30,58,138,0.4) 100%), url('../images/accountant-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-color: #1e3a8a;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+  transition: all .4s cubic-bezier(.16,1,.3,1);
+  box-shadow: 0 8px 24px rgba(14,165,233,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(14,165,233,0.45);
+}
+.btn-outline {
+  border: 1.5px solid #1e3a8a;
+  color: #1e3a8a;
+  transition: all .3s;
+}
+.btn-outline:hover { background: #1e3a8a; color: white; }
+.card { transition: all .4s cubic-bezier(.16,1,.3,1); }
+.card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(30,58,138,0.12); }
+.dot-pattern { background-image: radial-gradient(circle at 1px 1px, rgba(30,58,138,0.06) 1px, transparent 0); background-size: 24px 24px; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease-out, transform .8s cubic-bezier(.16,1,.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.stat-number { font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body class="bg-white">
-<header class="fixed top-0 w-full bg-white/90 backdrop-blur z-50 border-b border-slate-200">
+
+<header class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
   <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div><div class="text-xl font-bold text-slate-900">山田税理士事務所</div><div class="text-xs text-slate-500 font-en tracking-wider">YAMADA TAX & ACCOUNTING</div></div>
-    <div class="hidden md:flex gap-8 text-sm font-medium"><a href="#service" class="hover:text-blue-700">サービス</a><a href="#strength" class="hover:text-blue-700">強み</a><a href="#flow" class="hover:text-blue-700">ご相談の流れ</a><a href="#faq" class="hover:text-blue-700">よくある質問</a></div>
-    <a href="#contact" class="btn-primary text-white px-5 py-2 rounded-md text-sm font-medium">無料相談</a>
+    <div>
+      <div class="text-xl font-bold text-slate-900">山田税理士事務所</div>
+      <div class="text-[10px] text-slate-500 font-en tracking-[0.2em] mt-1">YAMADA TAX & ACCOUNTING</div>
+    </div>
+    <div class="hidden md:flex gap-8 text-sm font-medium">
+      <a href="#service" class="hover:text-blue-700 transition">サービス</a>
+      <a href="#strength" class="hover:text-blue-700 transition">強み</a>
+      <a href="#flow" class="hover:text-blue-700 transition">ご相談の流れ</a>
+      <a href="#voice" class="hover:text-blue-700 transition">お客様の声</a>
+      <a href="#faq" class="hover:text-blue-700 transition">FAQ</a>
+    </div>
+    <a href="#contact" class="btn-primary text-white px-6 py-2.5 rounded-md text-sm font-medium">無料相談</a>
   </nav>
 </header>
-<section class="hero-pattern pt-32 pb-24 px-6">
-  <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-8 items-center">
-    <div class="md:col-span-7">
-      <div class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium mb-6">✓ 創業 20 年 / 顧問契約 200 社超</div>
-      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">中小企業の<br><span class="gradient-text">「攻めの経理」</span>を、<br>伴走で。</h1>
-      <p class="text-slate-600 text-lg leading-relaxed mb-8">税務申告だけで終わらない。<br>資金繰り・補助金・事業承継まで、<br>AI 活用で月次決算を <span class="font-bold text-blue-700">5 営業日以内</span> に完了する税理士事務所です。</p>
-      <div class="flex gap-4 flex-wrap"><a href="#contact" class="btn-primary text-white px-8 py-4 rounded-md font-medium">初回 60 分 無料相談</a><a href="tel:0312349876" class="px-8 py-4 rounded-md border border-slate-300 hover:border-blue-700 hover:text-blue-700">03-1234-9876</a></div>
+
+<section class="hero-bg min-h-screen flex items-center pt-20 px-6 text-white">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center w-full">
+    <div class="md:col-span-7 reveal visible">
+      <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur text-blue-100 px-4 py-1.5 rounded-full text-xs font-medium mb-8 border border-white/20">
+        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+        創業 20 年 / 顧問契約 200 社超
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+        中小企業の<br>
+        <span class="bg-gradient-to-r from-sky-300 to-cyan-200 bg-clip-text text-transparent">「攻めの経理」</span>を、<br>
+        伴走で。
+      </h1>
+      <p class="text-blue-100 text-lg leading-relaxed mb-10">
+        税務申告だけで終わらない。<br>
+        資金繰り・補助金・事業承継まで、<br>
+        AI 活用で月次決算を <span class="font-bold text-white border-b border-sky-400">5 営業日以内</span> に完了する税理士事務所です。
+      </p>
+      <div class="flex gap-4 flex-wrap">
+        <a href="#contact" class="btn-primary text-white px-10 py-4 rounded-md font-medium">初回 60 分 無料相談 →</a>
+        <a href="tel:0312349876" class="px-10 py-4 rounded-md border border-white/40 hover:bg-white/10 transition">03-1234-9876</a>
+      </div>
     </div>
-    <div class="md:col-span-5">
+    <div class="md:col-span-5 reveal reveal-delay-1 visible">
       <div class="bg-white rounded-2xl shadow-2xl p-8 border border-slate-100">
-        <div class="text-sm text-slate-500 mb-2">実績ダッシュボード</div>
-        <div class="grid grid-cols-2 gap-6 mb-6">
-          <div><div class="text-3xl font-bold gradient-text">200+</div><div class="text-xs text-slate-500 mt-1">顧問契約数</div></div>
-          <div><div class="text-3xl font-bold gradient-text">20年</div><div class="text-xs text-slate-500 mt-1">実績年数</div></div>
-          <div><div class="text-3xl font-bold gradient-text">5日</div><div class="text-xs text-slate-500 mt-1">月次決算 標準納期</div></div>
-          <div><div class="text-3xl font-bold gradient-text">98%</div><div class="text-xs text-slate-500 mt-1">継続率</div></div>
+        <div class="flex justify-between items-center mb-4">
+          <div class="text-xs text-slate-500 font-medium font-en tracking-widest">PERFORMANCE 2026</div>
+          <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded">LIVE</span>
         </div>
-        <div class="border-t border-slate-100 pt-4 text-xs text-slate-500">📊 freee / マネーフォワード / 弥生 全対応</div>
+        <div class="grid grid-cols-2 gap-6 mb-6 text-slate-900">
+          <div>
+            <div class="text-3xl font-bold gradient-text stat-number">200<span class="text-base">+</span></div>
+            <div class="text-xs text-slate-500 mt-1">顧問契約数</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold gradient-text stat-number">20<span class="text-base">年</span></div>
+            <div class="text-xs text-slate-500 mt-1">実績年数</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold gradient-text stat-number">5<span class="text-base">日</span></div>
+            <div class="text-xs text-slate-500 mt-1">月次決算 標準納期</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold gradient-text stat-number">98<span class="text-base">%</span></div>
+            <div class="text-xs text-slate-500 mt-1">継続率</div>
+          </div>
+        </div>
+        <div class="border-t border-slate-100 pt-4 text-xs text-slate-500 flex items-center gap-3 flex-wrap">
+          <span>📊 freee</span>
+          <span>📈 マネーフォワード</span>
+          <span>📋 弥生</span>
+          <span>全対応</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<section class="py-20 px-6 bg-slate-50">
+
+<section class="py-24 px-6 bg-slate-50">
   <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">こんなお悩みありませんか?</h2>
-    <p class="text-slate-600 mb-12">中小企業の経営者から、毎月いただくご相談例です</p>
+    <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal">こんなお悩みありませんか?</h2>
+    <p class="text-slate-600 mb-16 reveal reveal-delay-1">中小企業の経営者から、毎月いただくご相談例です</p>
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white p-8 rounded-xl text-left"><div class="text-3xl mb-3">💸</div><p class="font-medium mb-2">資金繰りが見えない</p><p class="text-sm text-slate-600">月末に通帳を見るたび、ドキドキしている</p></div>
-      <div class="bg-white p-8 rounded-xl text-left"><div class="text-3xl mb-3">📋</div><p class="font-medium mb-2">月次決算が遅い</p><p class="text-sm text-slate-600">前月の数字が見えるのが翌月末で、打ち手が遅れる</p></div>
-      <div class="bg-white p-8 rounded-xl text-left"><div class="text-3xl mb-3">🤝</div><p class="font-medium mb-2">税理士と話せない</p><p class="text-sm text-slate-600">専門用語ばかりで、何を相談していいかわからない</p></div>
+      <div class="card bg-white p-10 rounded-xl text-left reveal">
+        <div class="text-4xl mb-4">💸</div>
+        <p class="font-bold mb-2 text-lg">資金繰りが見えない</p>
+        <p class="text-sm text-slate-600 leading-relaxed">月末に通帳を見るたび、ドキドキしている。来月の支払いをいつもギリギリで調整している。</p>
+      </div>
+      <div class="card bg-white p-10 rounded-xl text-left reveal reveal-delay-1">
+        <div class="text-4xl mb-4">📋</div>
+        <p class="font-bold mb-2 text-lg">月次決算が遅い</p>
+        <p class="text-sm text-slate-600 leading-relaxed">前月の数字が見えるのが翌月末で、打ち手が常に 1 ヶ月遅れる。経営判断に間に合わない。</p>
+      </div>
+      <div class="card bg-white p-10 rounded-xl text-left reveal reveal-delay-2">
+        <div class="text-4xl mb-4">🤝</div>
+        <p class="font-bold mb-2 text-lg">税理士と話せない</p>
+        <p class="text-sm text-slate-600 leading-relaxed">専門用語ばかりで、何を相談していいかわからない。年に 1 回しか会えないし、相談しづらい。</p>
+      </div>
     </div>
   </div>
 </section>
-<section id="service" class="py-24 px-6">
+
+<section id="service" class="py-32 px-6 dot-pattern">
   <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16"><p class="font-en text-blue-700 mb-2 tracking-wider">— SERVICES —</p><h2 class="text-3xl md:text-4xl font-bold">サービス内容</h2></div>
+    <div class="text-center mb-16">
+      <p class="font-en text-blue-700 mb-3 tracking-[0.3em] text-sm reveal">— SERVICES —</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 reveal">サービス内容</h2>
+      <p class="text-slate-600 reveal reveal-delay-1">全 3 カテゴリで中小企業の財務を支えます</p>
+    </div>
     <div class="grid md:grid-cols-3 gap-8">
-      <div class="card border border-slate-200 p-8 rounded-xl hover:border-blue-300"><div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl mb-4">📊</div><h3 class="text-xl font-bold mb-3">月次顧問</h3><p class="text-slate-600 text-sm mb-4 leading-relaxed">記帳代行・月次決算・経営分析レポート。AI 活用で月初 5 営業日以内に前月数字をご報告。</p><p class="text-blue-700 font-bold">¥33,000〜 / 月</p></div>
-      <div class="card border border-slate-200 p-8 rounded-xl hover:border-blue-300"><div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl mb-4">📝</div><h3 class="text-xl font-bold mb-3">決算・申告</h3><p class="text-slate-600 text-sm mb-4 leading-relaxed">法人税・消費税・年末調整・償却資産。e-Tax 完全対応。節税スキームのご提案も。</p><p class="text-blue-700 font-bold">¥165,000〜 / 年</p></div>
-      <div class="card border border-slate-200 p-8 rounded-xl hover:border-blue-300"><div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl mb-4">🏆</div><h3 class="text-xl font-bold mb-3">補助金・融資</h3><p class="text-slate-600 text-sm mb-4 leading-relaxed">IT 導入補助金・事業再構築・ものづくり等。創業融資・銀行借入の計画書作成。</p><p class="text-blue-700 font-bold">成功報酬制</p></div>
+      <div class="card border border-slate-200 p-10 rounded-2xl bg-white reveal">
+        <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center text-2xl mb-6">📊</div>
+        <h3 class="text-2xl font-bold mb-3">月次顧問</h3>
+        <p class="text-slate-600 text-sm mb-6 leading-relaxed">記帳代行・月次決算・経営分析レポート。AI 活用で月初 5 営業日以内に前月数字をご報告。</p>
+        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+          <li>✓ 仕訳・記帳代行 (OCR 自動仕訳)</li>
+          <li>✓ 月次試算表 + 経営レポート</li>
+          <li>✓ 月 1 経営者ミーティング</li>
+        </ul>
+        <div class="border-t border-slate-100 pt-4">
+          <p class="text-blue-700 font-bold text-2xl font-en">¥33,000<span class="text-sm text-slate-500">〜 / 月</span></p>
+        </div>
+      </div>
+      <div class="card border-2 border-blue-300 p-10 rounded-2xl bg-white relative reveal reveal-delay-1">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-700 to-sky-500 text-white text-xs px-4 py-1 rounded-full font-medium">最も選ばれる</div>
+        <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center text-2xl mb-6">📝</div>
+        <h3 class="text-2xl font-bold mb-3">決算・申告</h3>
+        <p class="text-slate-600 text-sm mb-6 leading-relaxed">法人税・消費税・年末調整・償却資産。e-Tax 完全対応。節税スキームのご提案も。</p>
+        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+          <li>✓ 法人税申告書 + 別表類</li>
+          <li>✓ 消費税申告書 (簡易/原則対応)</li>
+          <li>✓ 節税スキーム 3 案ご提示</li>
+        </ul>
+        <div class="border-t border-slate-100 pt-4">
+          <p class="text-blue-700 font-bold text-2xl font-en">¥165,000<span class="text-sm text-slate-500">〜 / 年</span></p>
+        </div>
+      </div>
+      <div class="card border border-slate-200 p-10 rounded-2xl bg-white reveal reveal-delay-2">
+        <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center text-2xl mb-6">🏆</div>
+        <h3 class="text-2xl font-bold mb-3">補助金・融資</h3>
+        <p class="text-slate-600 text-sm mb-6 leading-relaxed">IT 導入補助金・事業再構築・ものづくり等。創業融資・銀行借入の計画書作成。</p>
+        <ul class="text-xs text-slate-500 space-y-1 mb-6">
+          <li>✓ 補助金申請書作成 (採択率 78%)</li>
+          <li>✓ 事業計画書作成</li>
+          <li>✓ 金融機関交渉同席</li>
+        </ul>
+        <div class="border-t border-slate-100 pt-4">
+          <p class="text-blue-700 font-bold text-2xl font-en">成功報酬制</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<section id="strength" class="py-24 px-6 bg-gradient-to-br from-blue-900 to-slate-900 text-white">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16"><p class="font-en text-blue-300 mb-2 tracking-wider">— OUR STRENGTHS —</p><h2 class="text-3xl md:text-4xl font-bold">選ばれる 3 つの理由</h2></div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div><div class="text-5xl font-bold text-blue-300 mb-4">01</div><h3 class="text-xl font-bold mb-3">AI で月次決算 5 日完了</h3><p class="text-slate-300 text-sm leading-relaxed">freee / マネーフォワードと AI 連携。OCR で領収書を自動仕訳し、人手介入を最小化。</p></div>
-      <div><div class="text-5xl font-bold text-blue-300 mb-4">02</div><h3 class="text-xl font-bold mb-3">業界知見が深い</h3><p class="text-slate-300 text-sm leading-relaxed">飲食 / 建設 / IT / 小売 / 医療など、業種ごとの会計慣習・節税策をご提案します。</p></div>
-      <div><div class="text-5xl font-bold text-blue-300 mb-4">03</div><h3 class="text-xl font-bold mb-3">月 1 経営者ミーティング</h3><p class="text-slate-300 text-sm leading-relaxed">数字だけでなく、資金繰り・人事・営業まで横断的に相談できるパートナー型顧問。</p></div>
+
+<section id="strength" class="py-32 px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+  <div class="max-w-6xl mx-auto relative">
+    <div class="text-center mb-20">
+      <p class="font-en text-sky-300 mb-3 tracking-[0.3em] text-sm reveal">— OUR STRENGTHS —</p>
+      <h2 class="text-3xl md:text-5xl font-bold reveal">選ばれる 3 つの理由</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="reveal">
+        <div class="text-6xl font-bold text-sky-300 mb-4 font-en">01</div>
+        <h3 class="text-2xl font-bold mb-4">AI で月次決算 5 日完了</h3>
+        <p class="text-slate-300 leading-relaxed">
+          freee / マネーフォワードと AI 連携。OCR で領収書を自動仕訳し、人手介入を最小化。月初 5 営業日で前月数字をご報告できる体制です。
+        </p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="text-6xl font-bold text-sky-300 mb-4 font-en">02</div>
+        <h3 class="text-2xl font-bold mb-4">業界知見が深い</h3>
+        <p class="text-slate-300 leading-relaxed">
+          飲食 / 建設 / IT / 小売 / 医療など、業種ごとの会計慣習・節税策・補助金スキームを蓄積。「うちの業界は特殊」というお声にも対応します。
+        </p>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="text-6xl font-bold text-sky-300 mb-4 font-en">03</div>
+        <h3 class="text-2xl font-bold mb-4">月 1 経営者ミーティング</h3>
+        <p class="text-slate-300 leading-relaxed">
+          数字だけでなく、資金繰り・人事・営業まで横断的に相談できるパートナー型顧問。「税理士に話したら方向性が見えた」とよく言われます。
+        </p>
+      </div>
     </div>
   </div>
 </section>
-<section id="flow" class="py-24 px-6">
+
+<section id="flow" class="py-32 px-6 bg-white">
   <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-16"><p class="font-en text-blue-700 mb-2 tracking-wider">— PROCESS —</p><h2 class="text-3xl md:text-4xl font-bold">ご相談の流れ</h2></div>
-    <div class="space-y-6">
-      <div class="flex gap-6 items-start"><div class="bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold shrink-0">1</div><div><h3 class="font-bold mb-1">無料相談 (60 分)</h3><p class="text-sm text-slate-600">現状ヒアリング + 改善案の提示。Zoom or オフィス。</p></div></div>
-      <div class="flex gap-6 items-start"><div class="bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold shrink-0">2</div><div><h3 class="font-bold mb-1">お見積もり</h3><p class="text-sm text-slate-600">業務範囲・月額をご提示。3 日以内に書面でお渡し。</p></div></div>
-      <div class="flex gap-6 items-start"><div class="bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold shrink-0">3</div><div><h3 class="font-bold mb-1">ご契約</h3><p class="text-sm text-slate-600">電子契約 (CloudSign) で即日完結。</p></div></div>
-      <div class="flex gap-6 items-start"><div class="bg-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold shrink-0">4</div><div><h3 class="font-bold mb-1">月次運用開始</h3><p class="text-sm text-slate-600">初月 freee/MF 連携設定。翌月から 5 営業日内 月次レポート。</p></div></div>
+    <div class="text-center mb-20">
+      <p class="font-en text-blue-700 mb-3 tracking-[0.3em] text-sm reveal">— PROCESS —</p>
+      <h2 class="text-3xl md:text-5xl font-bold reveal">ご相談の流れ</h2>
+    </div>
+    <div class="space-y-8">
+      <div class="flex gap-8 items-start reveal">
+        <div class="bg-gradient-to-br from-blue-700 to-sky-500 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shrink-0 shadow-lg">1</div>
+        <div class="flex-1">
+          <h3 class="font-bold text-xl mb-2">無料相談 (60 分)</h3>
+          <p class="text-slate-600 leading-relaxed">現状ヒアリング + 改善案の提示。Zoom or オフィス。料金は一切発生しません。</p>
+        </div>
+      </div>
+      <div class="flex gap-8 items-start reveal reveal-delay-1">
+        <div class="bg-gradient-to-br from-blue-700 to-sky-500 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shrink-0 shadow-lg">2</div>
+        <div class="flex-1">
+          <h3 class="font-bold text-xl mb-2">お見積もり</h3>
+          <p class="text-slate-600 leading-relaxed">業務範囲・月額をご提示。3 日以内に書面でお渡し。ご質問あればこの段階で。</p>
+        </div>
+      </div>
+      <div class="flex gap-8 items-start reveal reveal-delay-2">
+        <div class="bg-gradient-to-br from-blue-700 to-sky-500 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shrink-0 shadow-lg">3</div>
+        <div class="flex-1">
+          <h3 class="font-bold text-xl mb-2">ご契約</h3>
+          <p class="text-slate-600 leading-relaxed">電子契約 (CloudSign) で即日完結。来所不要、すべてオンラインで進められます。</p>
+        </div>
+      </div>
+      <div class="flex gap-8 items-start reveal reveal-delay-3">
+        <div class="bg-gradient-to-br from-blue-700 to-sky-500 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shrink-0 shadow-lg">4</div>
+        <div class="flex-1">
+          <h3 class="font-bold text-xl mb-2">月次運用開始</h3>
+          <p class="text-slate-600 leading-relaxed">初月 freee/MF 連携設定。翌月から 5 営業日内 月次レポート。困りごとはいつでも Slack/メールで。</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<section id="contact" class="py-24 px-6 bg-gradient-to-r from-blue-700 to-blue-900 text-white">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl md:text-5xl font-bold mb-6">まずは 60 分の無料相談から。</h2>
-    <p class="text-blue-100 mb-10 leading-relaxed">「税理士を変えたい」「これから創業する」「補助金を狙いたい」<br>どんな段階のご相談でも、お気軽にお問い合わせください。</p>
-    <div class="flex gap-4 justify-center flex-wrap"><a href="#" class="bg-white text-blue-700 px-8 py-4 rounded-md font-bold hover:bg-blue-50 transition">フォームで予約 →</a><a href="tel:0312349876" class="border-2 border-white px-8 py-4 rounded-md font-bold hover:bg-white hover:text-blue-700 transition">03-1234-9876</a></div>
+
+<section id="voice" class="py-32 px-6 bg-slate-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="font-en text-blue-700 mb-3 tracking-[0.3em] text-sm reveal">— CLIENT VOICE —</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 reveal">お客様の声</h2>
+      <p class="text-slate-600 reveal reveal-delay-1">顧問先 200 社の中から、3 社の経営者の方から</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card bg-white p-10 rounded-2xl reveal">
+        <p class="text-blue-700 text-5xl font-en font-bold leading-none mb-4">"</p>
+        <p class="text-slate-700 leading-relaxed mb-6 text-sm">
+          前職の税理士は年 1 回会うだけで、数字も分からないまま経営してました。山田先生に変えてから月次で経営判断できるようになり、3 年で売上 2 倍に。
+        </p>
+        <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-300 to-blue-500"></div>
+          <div>
+            <p class="font-medium text-sm">A 社 代表取締役 / IT・SaaS</p>
+            <p class="text-xs text-slate-500">従業員 8 名 / 顧問 3 年</p>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-white p-10 rounded-2xl reveal reveal-delay-1">
+        <p class="text-blue-700 text-5xl font-en font-bold leading-none mb-4">"</p>
+        <p class="text-slate-700 leading-relaxed mb-6 text-sm">
+          飲食店経営に特化した節税策を提案してもらえて、年間 80 万円の税負担減。IT 導入補助金も採択され、自分では絶対できなかったです。
+        </p>
+        <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-sky-300 to-blue-400"></div>
+          <div>
+            <p class="font-medium text-sm">B 社 代表 / 飲食 (3 店舗)</p>
+            <p class="text-xs text-slate-500">従業員 22 名 / 顧問 5 年</p>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-white p-10 rounded-2xl reveal reveal-delay-2">
+        <p class="text-blue-700 text-5xl font-en font-bold leading-none mb-4">"</p>
+        <p class="text-slate-700 leading-relaxed mb-6 text-sm">
+          創業時から伴走してくれて、銀行融資 5,000 万円を引き当てる事業計画書を一緒に作ってくれました。「税理士」というより「経営パートナー」です。
+        </p>
+        <div class="flex items-center gap-4 pt-6 border-t border-slate-100">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-sky-600"></div>
+          <div>
+            <p class="font-medium text-sm">C 社 代表 / 製造業</p>
+            <p class="text-xs text-slate-500">従業員 15 名 / 顧問 7 年</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-<footer class="bg-slate-900 text-slate-400 py-12 px-6"><div class="max-w-7xl mx-auto text-center"><div class="text-xl font-bold text-white mb-2">山田税理士事務所</div><p class="text-xs mb-4">〒100-0001 東京都千代田区千代田 1-1 山田ビル 7F / 営業 9:00-18:00 (土日祝休)</p><p class="text-xs">© 2026 YAMADA TAX & ACCOUNTING. All rights reserved. — Designed by 北斗</p></div></footer>
+
+<section id="faq" class="py-32 px-6 bg-white">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="font-en text-blue-700 mb-3 tracking-[0.3em] text-sm reveal">— FAQ —</p>
+      <h2 class="text-3xl md:text-5xl font-bold reveal">よくあるご質問</h2>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-slate-50 rounded-xl reveal" open>
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>今の税理士から変更したいのですが、面倒な手続きはありますか?</span>
+          <span class="text-blue-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">
+          現在の税理士への連絡から、データ引き継ぎ、各種届出変更まで、すべて当所で代行いたします。お客様の作業は委任状にサインするだけです。
+        </div>
+      </details>
+      <details class="group bg-slate-50 rounded-xl reveal">
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>創業したばかりで売上が少ないですが大丈夫ですか?</span>
+          <span class="text-blue-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">
+          創業期のお客様も多くいらっしゃいます。月額 ¥33,000 〜の月次顧問に加え、創業融資の事業計画書作成も対応可能です。
+        </div>
+      </details>
+      <details class="group bg-slate-50 rounded-xl reveal">
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>遠方でも対応できますか?</span>
+          <span class="text-blue-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">
+          全国対応しております。すべての業務を Zoom + 電子契約 + クラウド会計でオンライン完結できます。来所不要です。
+        </div>
+      </details>
+      <details class="group bg-slate-50 rounded-xl reveal">
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>急ぎの相談 (融資・税務調査対応など) も受けてもらえますか?</span>
+          <span class="text-blue-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">
+          顧問契約のお客様は最優先で対応いたします。新規のお客様も、緊急時は最短 1 営業日以内に初回 Zoom を設定いたします。
+        </div>
+      </details>
+      <details class="group bg-slate-50 rounded-xl reveal">
+        <summary class="cursor-pointer p-6 font-medium flex justify-between items-center">
+          <span>個人事業主でも対応可能ですか?</span>
+          <span class="text-blue-700 group-open:rotate-45 transition text-xl">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">
+          はい、個人事業主のお客様も多数います。法人成りのタイミングのご相談も含めて伴走いたします。
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-32 px-6 bg-gradient-to-br from-blue-700 via-blue-800 to-blue-950 text-white relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-sky-500/10 rounded-full blur-3xl"></div>
+  <div class="max-w-4xl mx-auto text-center relative">
+    <h2 class="text-3xl md:text-5xl font-bold mb-6 reveal">まずは 60 分の無料相談から。</h2>
+    <p class="text-blue-100 mb-12 leading-relaxed text-lg reveal reveal-delay-1">
+      「税理士を変えたい」「これから創業する」「補助金を狙いたい」<br>
+      どんな段階のご相談でも、お気軽にお問い合わせください。<br>
+      <span class="text-sky-300 text-sm">※ 相談料は一切いただきません</span>
+    </p>
+    <div class="flex gap-4 justify-center flex-wrap reveal reveal-delay-2">
+      <a href="#" class="bg-white text-blue-700 px-10 py-4 rounded-md font-bold hover:bg-sky-50 transition shadow-2xl">フォームで予約 →</a>
+      <a href="tel:0312349876" class="border-2 border-white px-10 py-4 rounded-md font-bold hover:bg-white hover:text-blue-700 transition">03-1234-9876</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-slate-950 text-slate-400 py-16 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-10 pb-10 border-b border-slate-800">
+      <div class="md:col-span-2">
+        <div class="text-2xl font-bold text-white mb-2">山田税理士事務所</div>
+        <p class="text-xs text-slate-500 font-en tracking-widest mb-4">YAMADA TAX & ACCOUNTING</p>
+        <p class="text-sm leading-relaxed">創業 20 年、中小企業 200 社の財務を支える税理士事務所です。AI 活用で月次決算を 5 営業日以内に完了。</p>
+      </div>
+      <div>
+        <p class="font-en text-sky-300 mb-3 text-sm tracking-widest">SERVICES</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#service" class="hover:text-white transition">月次顧問</a></li>
+          <li><a href="#service" class="hover:text-white transition">決算・申告</a></li>
+          <li><a href="#service" class="hover:text-white transition">補助金・融資</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="font-en text-sky-300 mb-3 text-sm tracking-widest">CONTACT</p>
+        <p class="text-sm">〒100-0001<br>東京都千代田区千代田 1-1<br>山田ビル 7F</p>
+        <p class="text-sm mt-3">TEL: 03-1234-9876<br>9:00 - 18:00 (土日祝休)</p>
+      </div>
+    </div>
+    <p class="text-xs text-center pt-6 text-slate-600">© 2026 YAMADA TAX & ACCOUNTING. All rights reserved. — Designed by 北斗</p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>

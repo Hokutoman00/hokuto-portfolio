@@ -3,121 +3,456 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>北斗 — LP / Webサイト制作 ポートフォリオ</title>
-<meta name="description" content="Claude Code × Next.js × Tailwind で、コンセプトから公開まで高速にLP・Webサイトを設計・実装します。">
+<title>北斗 | LP / Web 制作 ポートフォリオ — Claude Code × Next.js × Tailwind</title>
+<meta name="description" content="Claude Code × Next.js × Tailwind で、コンセプトから公開まで最短 1 日で形にする LP / Web 制作。美容室・税理士事務所・カフェの 3 業種デモあり。">
+<meta property="og:title" content="北斗 | LP / Web 制作 ポートフォリオ">
+<meta property="og:description" content="Claude Code × Next.js × Tailwind で、コンセプトから公開まで最短 1 日で形にする LP / Web 制作。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://hokuto-portfolio.vercel.app/images/og-top.jpg">
+<meta property="og:url" content="https://hokuto-portfolio.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="北斗 | LP / Web 制作 ポートフォリオ">
+<meta name="twitter:description" content="Claude Code × Next.js × Tailwind で、最短 1 日で形にする LP / Web 制作。">
+<meta name="twitter:image" content="https://hokuto-portfolio.vercel.app/images/og-top.jpg">
+<link rel="canonical" href="https://hokuto-portfolio.vercel.app/">
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-body { font-family: 'Noto Sans JP', sans-serif; color: #0f172a; -webkit-font-smoothing: antialiased; }
-.font-en { font-family: 'Inter', sans-serif; }
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: 'Noto Sans JP', sans-serif; color: #0f172a; letter-spacing: 0.01em; line-height: 1.7; }
+.font-en { font-family: 'Inter', sans-serif; letter-spacing: 0.01em; }
+.font-en-tight { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; }
 .gradient-text { background: linear-gradient(135deg, #6366f1, #ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.btn-primary { background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%); transition: all .3s; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(99,102,241,0.3); }
-.card { transition: all .3s; }
-.card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.12); }
-.thumb { transition: transform .6s; }
-.card:hover .thumb { transform: scale(1.05); }
+.gradient-bg { background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%); }
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  transition: all .4s cubic-bezier(.16,1,.3,1);
+  box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(99,102,241,0.45);
+}
+.btn-outline {
+  border: 1.5px solid rgba(99,102,241,0.4);
+  color: #6366f1;
+  transition: all .3s;
+}
+.btn-outline:hover {
+  border-color: #6366f1;
+  background: rgba(99,102,241,0.05);
+}
+.card { transition: all .4s cubic-bezier(.16,1,.3,1); }
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 64px rgba(0,0,0,0.12);
+}
+.thumb { transition: transform .8s cubic-bezier(.16,1,.3,1); }
+.card:hover .thumb { transform: scale(1.08); }
+.hero-grad {
+  background: radial-gradient(ellipse at 20% 20%, rgba(99,102,241,0.15), transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(236,72,153,0.15), transparent 50%),
+              radial-gradient(ellipse at 50% 50%, rgba(251,191,36,0.1), transparent 60%);
+}
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s ease-out, transform .9s cubic-bezier(.16,1,.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+.glow {
+  background: radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%);
+}
+.marquee { display: flex; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent); }
+.marquee-track { display: flex; animation: marquee 30s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.tab-chip {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin: 0 8px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+}
 </style>
 </head>
 <body class="bg-slate-50">
 
-<header class="fixed top-0 w-full bg-white/80 backdrop-blur z-50 border-b border-slate-200">
+<header class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200/60">
   <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="font-en text-xl font-bold">Hokuto<span class="text-pink-500">.dev</span></div>
+    <div class="font-en text-xl font-bold tracking-tight">Hokuto<span class="text-pink-500">.dev</span></div>
     <div class="hidden md:flex gap-8 text-sm">
-      <a href="#works" class="hover:text-indigo-600">Works</a>
-      <a href="#skills" class="hover:text-indigo-600">Skills</a>
-      <a href="#contact" class="hover:text-indigo-600">Contact</a>
+      <a href="#works" class="hover:text-indigo-600 transition">Works</a>
+      <a href="#services" class="hover:text-indigo-600 transition">Services</a>
+      <a href="#skills" class="hover:text-indigo-600 transition">Skills</a>
+      <a href="#pricing" class="hover:text-indigo-600 transition">Pricing</a>
+      <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
     </div>
   </nav>
 </header>
 
-<section class="pt-32 pb-20 px-6">
-  <div class="max-w-5xl mx-auto text-center">
-    <div class="inline-block bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium mb-6">LP / Webサイト 制作 ポートフォリオ</div>
-    <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">コンセプトから公開まで、<br><span class="gradient-text">最短 1 日で形にする</span><br>LP / Web 制作。</h1>
-    <p class="text-slate-600 text-lg leading-relaxed mb-10 max-w-3xl mx-auto">Claude Code × Next.js × Tailwind を主軸に、デザイン・実装・公開までを一人で完結。<br>業種の世界観を読み解き、コピー・色・余白で「らしさ」をかたちにします。</p>
+<section class="pt-40 pb-24 px-6 hero-grad relative overflow-hidden">
+  <div class="absolute top-20 left-1/4 w-96 h-96 glow opacity-30 rounded-full"></div>
+  <div class="max-w-5xl mx-auto text-center relative">
+    <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur border border-indigo-200/50 text-indigo-700 px-4 py-1.5 rounded-full text-xs font-medium mb-8 shadow-sm">
+      <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+      LP / Web 制作 ポートフォリオ
+    </div>
+    <h1 class="text-4xl md:text-7xl font-bold leading-[1.15] mb-8 font-en-tight">
+      コンセプトから公開まで、<br>
+      <span class="gradient-text">最短 1 日で形にする</span><br>
+      LP / Web 制作。
+    </h1>
+    <p class="text-slate-600 text-lg md:text-xl leading-relaxed mb-12 max-w-3xl mx-auto">
+      Claude Code × Next.js × Tailwind を主軸に、デザイン・実装・公開までを一人で完結。<br>
+      業種の世界観を読み解き、コピー・色・余白で「らしさ」をかたちにします。
+    </p>
     <div class="flex gap-4 justify-center flex-wrap">
-      <a href="#works" class="btn-primary text-white px-8 py-4 rounded-lg font-medium">制作実績を見る ↓</a>
-      <a href="#contact" class="px-8 py-4 rounded-lg border border-slate-300 hover:border-indigo-600 hover:text-indigo-600 transition">ご依頼・ご相談</a>
+      <a href="#works" class="btn-primary text-white px-8 py-4 rounded-lg font-medium text-base">制作実績を見る ↓</a>
+      <a href="#contact" class="btn-outline px-8 py-4 rounded-lg">ご依頼・ご相談</a>
+    </div>
+    <div class="mt-16 flex justify-center gap-12 text-center reveal visible">
+      <div>
+        <p class="text-3xl font-bold gradient-text font-en">3+</p>
+        <p class="text-xs text-slate-500 mt-1">業種デモサンプル</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold gradient-text font-en">1日</p>
+        <p class="text-xs text-slate-500 mt-1">最短納期 (Light)</p>
+      </div>
+      <div>
+        <p class="text-3xl font-bold gradient-text font-en">100%</p>
+        <p class="text-xs text-slate-500 mt-1">レスポンシブ対応</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="works" class="py-20 px-6">
+<section class="py-6 bg-white border-y border-slate-100 overflow-hidden">
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="tab-chip">⚡ Claude Code</span>
+      <span class="tab-chip">▲ Next.js</span>
+      <span class="tab-chip">🎨 Tailwind CSS</span>
+      <span class="tab-chip">🚀 Astro</span>
+      <span class="tab-chip">⚛️ React</span>
+      <span class="tab-chip">📘 TypeScript</span>
+      <span class="tab-chip">🐍 Python</span>
+      <span class="tab-chip">🎭 Playwright</span>
+      <span class="tab-chip">🎤 Whisper</span>
+      <span class="tab-chip">📋 Notion API</span>
+      <span class="tab-chip">💬 Slack API</span>
+      <span class="tab-chip">📊 GAS</span>
+      <span class="tab-chip">🔧 MCP Server</span>
+      <span class="tab-chip">▲ Vercel</span>
+      <span class="tab-chip">⚡ Claude Code</span>
+      <span class="tab-chip">▲ Next.js</span>
+      <span class="tab-chip">🎨 Tailwind CSS</span>
+      <span class="tab-chip">🚀 Astro</span>
+      <span class="tab-chip">⚛️ React</span>
+      <span class="tab-chip">📘 TypeScript</span>
+      <span class="tab-chip">🐍 Python</span>
+      <span class="tab-chip">🎭 Playwright</span>
+      <span class="tab-chip">🎤 Whisper</span>
+      <span class="tab-chip">📋 Notion API</span>
+      <span class="tab-chip">💬 Slack API</span>
+      <span class="tab-chip">📊 GAS</span>
+      <span class="tab-chip">🔧 MCP Server</span>
+      <span class="tab-chip">▲ Vercel</span>
+    </div>
+  </div>
+</section>
+
+<section id="works" class="py-32 px-6 bg-slate-50">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="font-en text-indigo-600 mb-2 tracking-wider">— WORKS —</p>
-      <h2 class="text-3xl md:text-4xl font-bold mb-3">制作デモサンプル</h2>
-      <p class="text-slate-600">業種ごとの世界観を、それぞれの「正解の余白」で表現したサンプルです。</p>
+    <div class="text-center mb-20">
+      <p class="font-en text-indigo-600 mb-3 tracking-[0.3em] text-sm reveal">— WORKS —</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 reveal">制作デモサンプル</h2>
+      <p class="text-slate-600 reveal reveal-delay-1">業種ごとの世界観を、それぞれの「正解の余白」で表現したサンプルです。</p>
     </div>
+
     <div class="grid md:grid-cols-3 gap-8">
-      <a href="./salon/" class="card block bg-white rounded-2xl overflow-hidden">
-        <div class="aspect-video bg-gradient-to-br from-rose-200 via-orange-200 to-rose-400 overflow-hidden"><div class="thumb h-full w-full flex items-center justify-center text-7xl">💇‍♀️</div></div>
-        <div class="p-6"><div class="text-xs text-rose-600 mb-2 font-medium tracking-wider">BEAUTY SALON</div><h3 class="text-xl font-bold mb-2">Salon de Lumière</h3><p class="text-sm text-slate-600 leading-relaxed mb-4">表参道の隠れ家サロン LP。Noto Serif × Cormorant の上品な書体組み、温かいピンク系で「優雅さ」と「親しみ」を両立。</p><div class="flex gap-2 flex-wrap"><span class="text-xs bg-rose-100 text-rose-700 px-2 py-1 rounded">美容</span><span class="text-xs bg-rose-100 text-rose-700 px-2 py-1 rounded">予約導線</span><span class="text-xs bg-rose-100 text-rose-700 px-2 py-1 rounded">5 セクション</span></div></div>
+
+      <a href="./salon/" class="card block bg-white rounded-3xl overflow-hidden shadow-lg reveal">
+        <div class="aspect-video bg-gradient-to-br from-rose-200 via-orange-200 to-rose-400 overflow-hidden relative">
+          <img src="./images/salon-hero.jpg" alt="Salon de Lumière" class="thumb w-full h-full object-cover" onerror="this.style.display='none'">
+          <div class="thumb absolute inset-0 flex items-center justify-center text-8xl">💇‍♀️</div>
+        </div>
+        <div class="p-8">
+          <div class="text-xs text-rose-600 mb-2 font-medium tracking-[0.2em]">BEAUTY SALON</div>
+          <h3 class="text-2xl font-bold mb-3">Salon de Lumière</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-5">
+            表参道の隠れ家サロン LP。Noto Serif × Cormorant の上品な書体組み、温かいピンク系で「優雅さ」と「親しみ」を両立。Voice + FAQ を含むフル LP。
+          </p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="text-xs bg-rose-50 text-rose-700 px-3 py-1 rounded-full">美容</span>
+            <span class="text-xs bg-rose-50 text-rose-700 px-3 py-1 rounded-full">予約導線</span>
+            <span class="text-xs bg-rose-50 text-rose-700 px-3 py-1 rounded-full">8 セクション</span>
+          </div>
+        </div>
       </a>
-      <a href="./accountant/" class="card block bg-white rounded-2xl overflow-hidden">
-        <div class="aspect-video bg-gradient-to-br from-blue-200 via-indigo-300 to-blue-700 overflow-hidden"><div class="thumb h-full w-full flex items-center justify-center text-7xl">📊</div></div>
-        <div class="p-6"><div class="text-xs text-blue-700 mb-2 font-medium tracking-wider">TAX & ACCOUNTING</div><h3 class="text-xl font-bold mb-2">山田税理士事務所</h3><p class="text-sm text-slate-600 leading-relaxed mb-4">中小企業向け税理士の信頼感を、ネイビーとインフォグラフィックで設計。実績ダッシュボード + 4 ステップフロー。</p><div class="flex gap-2 flex-wrap"><span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">士業</span><span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">無料相談 CV</span><span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">7 セクション</span></div></div>
+
+      <a href="./accountant/" class="card block bg-white rounded-3xl overflow-hidden shadow-lg reveal reveal-delay-1">
+        <div class="aspect-video bg-gradient-to-br from-blue-200 via-indigo-300 to-blue-700 overflow-hidden relative">
+          <img src="./images/accountant-hero.jpg" alt="山田税理士事務所" class="thumb w-full h-full object-cover" onerror="this.style.display='none'">
+          <div class="thumb absolute inset-0 flex items-center justify-center text-8xl">📊</div>
+        </div>
+        <div class="p-8">
+          <div class="text-xs text-blue-700 mb-2 font-medium tracking-[0.2em]">TAX & ACCOUNTING</div>
+          <h3 class="text-2xl font-bold mb-3">山田税理士事務所</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-5">
+            中小企業向け税理士の信頼感を、ネイビー基調 + インフォグラフィックで設計。実績ダッシュボード + 4 ステップフロー + 顧客 Voice を訴求。
+          </p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full">士業</span>
+            <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full">無料相談 CV</span>
+            <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full">9 セクション</span>
+          </div>
+        </div>
       </a>
-      <a href="./cafe/" class="card block bg-white rounded-2xl overflow-hidden">
-        <div class="aspect-video bg-gradient-to-br from-amber-200 via-orange-300 to-amber-700 overflow-hidden"><div class="thumb h-full w-full flex items-center justify-center text-7xl">☕</div></div>
-        <div class="p-6"><div class="text-xs text-amber-700 mb-2 font-medium tracking-wider">CAFE / RETAIL</div><h3 class="text-xl font-bold mb-2">Cafe Kotori</h3><p class="text-sm text-slate-600 leading-relaxed mb-4">鎌倉の古民家カフェの「呼吸」を、Playfair Display と温かいブラウンで。フルスクリーン Hero + Gallery。</p><div class="flex gap-2 flex-wrap"><span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">飲食</span><span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">フルスクリーン Hero</span><span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">6 セクション</span></div></div>
+
+      <a href="./cafe/" class="card block bg-white rounded-3xl overflow-hidden shadow-lg reveal reveal-delay-2">
+        <div class="aspect-video bg-gradient-to-br from-amber-200 via-orange-300 to-amber-700 overflow-hidden relative">
+          <img src="./images/cafe-hero.jpg" alt="Cafe Kotori" class="thumb w-full h-full object-cover" onerror="this.style.display='none'">
+          <div class="thumb absolute inset-0 flex items-center justify-center text-8xl">☕</div>
+        </div>
+        <div class="p-8">
+          <div class="text-xs text-amber-700 mb-2 font-medium tracking-[0.2em]">CAFE / RETAIL</div>
+          <h3 class="text-2xl font-bold mb-3">Cafe Kotori</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-5">
+            鎌倉の古民家カフェの「呼吸」を、Playfair Display と温かいブラウンで。フルスクリーン Hero + メニュー + Gallery + FAQ。
+          </p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="text-xs bg-amber-50 text-amber-800 px-3 py-1 rounded-full">飲食</span>
+            <span class="text-xs bg-amber-50 text-amber-800 px-3 py-1 rounded-full">フルスクリーン Hero</span>
+            <span class="text-xs bg-amber-50 text-amber-800 px-3 py-1 rounded-full">8 セクション</span>
+          </div>
+        </div>
       </a>
+
     </div>
   </div>
 </section>
 
-<section id="skills" class="py-20 px-6 bg-white">
-  <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-16"><p class="font-en text-indigo-600 mb-2 tracking-wider">— SKILLS —</p><h2 class="text-3xl md:text-4xl font-bold">技術スタック</h2></div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div><div class="text-2xl mb-3">🎨</div><h3 class="font-bold mb-3">デザイン</h3><ul class="text-sm text-slate-600 space-y-2"><li>・ Tailwind CSS</li><li>・ レスポンシブ最適化</li><li>・ Google Fonts カスタム組版</li><li>・ アクセシビリティ配慮</li></ul></div>
-      <div><div class="text-2xl mb-3">⚡</div><h3 class="font-bold mb-3">実装</h3><ul class="text-sm text-slate-600 space-y-2"><li>・ Next.js / Astro / Pure HTML</li><li>・ TypeScript / React</li><li>・ Claude Code 主体の高速実装</li><li>・ 既存サイトの修正・改善</li></ul></div>
-      <div><div class="text-2xl mb-3">🚀</div><h3 class="font-bold mb-3">公開・運用</h3><ul class="text-sm text-slate-600 space-y-2"><li>・ Vercel / Netlify / GitHub Pages</li><li>・ 独自ドメイン設定</li><li>・ Google Analytics / Search Console</li><li>・ Core Web Vitals 最適化</li></ul></div>
+<section id="services" class="py-32 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-20">
+      <p class="font-en text-indigo-600 mb-3 tracking-[0.3em] text-sm reveal">— SERVICES —</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 reveal">提供サービス</h2>
+      <p class="text-slate-600 reveal reveal-delay-1">LP 制作以外も、AI / 自動化 / 業務効率化を幅広くお請けしています。</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card border border-slate-200 p-7 rounded-2xl bg-white reveal">
+        <div class="text-3xl mb-4">⚡</div>
+        <h3 class="font-bold mb-2">Claude Code 導入支援</h3>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">30 分相談 + 設定ファイル提供。Skills/Hooks/MCP まで一通り。</p>
+        <p class="text-indigo-600 font-bold font-en">¥10,000〜</p>
+      </div>
+      <div class="card border border-slate-200 p-7 rounded-2xl bg-white reveal reveal-delay-1">
+        <div class="text-3xl mb-4">🤖</div>
+        <h3 class="font-bold mb-2">Claude API + MCP 業務自動化</h3>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">Claude/OpenAI/Gemini API、MCP サーバー自作、Python/Node 実装。</p>
+        <p class="text-indigo-600 font-bold font-en">¥30,000〜</p>
+      </div>
+      <div class="card border border-slate-200 p-7 rounded-2xl bg-white reveal reveal-delay-2">
+        <div class="text-3xl mb-4">🎤</div>
+        <h3 class="font-bold mb-2">Whisper 音声書き起こし</h3>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">ローカル CUDA で高精度文字起こし + 要約。24h 以内納品。</p>
+        <p class="text-indigo-600 font-bold font-en">¥10,000〜</p>
+      </div>
+      <div class="card border border-slate-200 p-7 rounded-2xl bg-white reveal">
+        <div class="text-3xl mb-4">🎭</div>
+        <h3 class="font-bold mb-2">Playwright 業務自動化</h3>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">Web 操作、スクレイピング、24h 常駐運用まで。PM2/systemd 対応。</p>
+        <p class="text-indigo-600 font-bold font-en">¥30,000〜</p>
+      </div>
+      <div class="card border border-slate-200 p-7 rounded-2xl bg-white reveal reveal-delay-1">
+        <div class="text-3xl mb-4">📋</div>
+        <h3 class="font-bold mb-2">Notion + AI 業務効率化</h3>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">DB 自動更新、議事録要約、Slack/Gmail 連携。仕組み化重視。</p>
+        <p class="text-indigo-600 font-bold font-en">¥20,000〜</p>
+      </div>
+      <div class="card border-2 border-indigo-300 p-7 rounded-2xl bg-gradient-to-br from-indigo-50 to-pink-50 reveal reveal-delay-2 relative">
+        <div class="absolute -top-3 left-7 bg-gradient-to-r from-indigo-500 to-pink-500 text-white text-xs px-3 py-1 rounded-full">NEW</div>
+        <div class="text-3xl mb-4">🌐</div>
+        <h3 class="font-bold mb-2">LP / Web 制作</h3>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">Next.js/Astro + Tailwind。Vercel/Netlify 公開込み。3 業種デモあり。</p>
+        <p class="text-indigo-600 font-bold font-en">¥30,000〜</p>
+      </div>
+    </div>
+    <div class="text-center mt-12 reveal">
+      <p class="text-sm text-slate-500 mb-4">全 6 サービスを各 platform で公開中</p>
+      <div class="flex gap-3 justify-center flex-wrap">
+        <a href="https://coconala.com/users/4960428" target="_blank" rel="noopener" class="px-5 py-2 bg-white border border-slate-200 rounded-full text-sm hover:border-indigo-300 transition">ココナラで見る →</a>
+        <a href="https://www.lancers.jp/profile/hokuto_ai_dev" target="_blank" rel="noopener" class="px-5 py-2 bg-white border border-slate-200 rounded-full text-sm hover:border-indigo-300 transition">Lancers で見る →</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="py-20 px-6">
+<section id="skills" class="py-32 px-6 bg-slate-50">
   <div class="max-w-5xl mx-auto">
-    <div class="text-center mb-16"><p class="font-en text-indigo-600 mb-2 tracking-wider">— PROCESS —</p><h2 class="text-3xl md:text-4xl font-bold">制作の流れ</h2></div>
+    <div class="text-center mb-20">
+      <p class="font-en text-indigo-600 mb-3 tracking-[0.3em] text-sm reveal">— SKILLS —</p>
+      <h2 class="text-3xl md:text-5xl font-bold reveal">技術スタック</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="reveal">
+        <div class="text-4xl mb-4">🎨</div>
+        <h3 class="font-bold text-xl mb-4">デザイン</h3>
+        <ul class="text-sm text-slate-600 space-y-2">
+          <li>・ Tailwind CSS</li>
+          <li>・ レスポンシブ最適化</li>
+          <li>・ Google Fonts カスタム組版</li>
+          <li>・ アクセシビリティ配慮</li>
+          <li>・ Core Web Vitals 最適化</li>
+        </ul>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="text-4xl mb-4">⚡</div>
+        <h3 class="font-bold text-xl mb-4">実装</h3>
+        <ul class="text-sm text-slate-600 space-y-2">
+          <li>・ Next.js / Astro / Pure HTML</li>
+          <li>・ TypeScript / React</li>
+          <li>・ Python / Node.js</li>
+          <li>・ Claude Code 主体の高速実装</li>
+          <li>・ 既存サイトの修正・改善</li>
+        </ul>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="text-4xl mb-4">🚀</div>
+        <h3 class="font-bold text-xl mb-4">公開・運用</h3>
+        <ul class="text-sm text-slate-600 space-y-2">
+          <li>・ Vercel / Netlify / GitHub Pages</li>
+          <li>・ 独自ドメイン設定</li>
+          <li>・ Google Analytics / Search Console</li>
+          <li>・ PM2 / nginx</li>
+          <li>・ CMS 連携 (microCMS)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-32 px-6 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-20">
+      <p class="font-en text-indigo-600 mb-3 tracking-[0.3em] text-sm reveal">— PROCESS —</p>
+      <h2 class="text-3xl md:text-5xl font-bold reveal">制作の流れ</h2>
+    </div>
     <div class="grid md:grid-cols-4 gap-6">
-      <div class="text-center"><div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-pink-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-4">1</div><h3 class="font-bold mb-2">ヒアリング</h3><p class="text-sm text-slate-600">業種・ターゲット・参考サイトをご共有ください。</p></div>
-      <div class="text-center"><div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-pink-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-4">2</div><h3 class="font-bold mb-2">ファーストビュー試作</h3><p class="text-sm text-slate-600">半日でファーストビュー案を 1-2 案。</p></div>
-      <div class="text-center"><div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-pink-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-4">3</div><h3 class="font-bold mb-2">本実装 + 修正</h3><p class="text-sm text-slate-600">全セクション実装 → 修正 2-3 回まで。</p></div>
-      <div class="text-center"><div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-pink-500 text-white rounded-full flex items-center justify-center font-bold mx-auto mb-4">4</div><h3 class="font-bold mb-2">公開 + 引き継ぎ</h3><p class="text-sm text-slate-600">Vercel/Netlify 公開 + 編集マニュアル付き。</p></div>
+      <div class="text-center reveal">
+        <div class="w-16 h-16 gradient-bg text-white rounded-full flex items-center justify-center font-bold font-en text-xl mx-auto mb-5 shadow-lg">1</div>
+        <h3 class="font-bold mb-2">ヒアリング</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">業種・ターゲット・参考サイトをご共有ください。</p>
+      </div>
+      <div class="text-center reveal reveal-delay-1">
+        <div class="w-16 h-16 gradient-bg text-white rounded-full flex items-center justify-center font-bold font-en text-xl mx-auto mb-5 shadow-lg">2</div>
+        <h3 class="font-bold mb-2">ファーストビュー試作</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">半日でファーストビュー案を 1-2 案ご提示。</p>
+      </div>
+      <div class="text-center reveal reveal-delay-2">
+        <div class="w-16 h-16 gradient-bg text-white rounded-full flex items-center justify-center font-bold font-en text-xl mx-auto mb-5 shadow-lg">3</div>
+        <h3 class="font-bold mb-2">本実装 + 修正</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">全セクション実装 → 修正 2-3 回まで対応。</p>
+      </div>
+      <div class="text-center reveal reveal-delay-3">
+        <div class="w-16 h-16 gradient-bg text-white rounded-full flex items-center justify-center font-bold font-en text-xl mx-auto mb-5 shadow-lg">4</div>
+        <h3 class="font-bold mb-2">公開 + 引き継ぎ</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">Vercel/Netlify 公開 + 編集マニュアル付き。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="py-20 px-6 bg-gradient-to-br from-indigo-50 via-pink-50 to-amber-50">
+<section id="pricing" class="py-32 px-6 bg-gradient-to-br from-indigo-50 via-pink-50 to-amber-50">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16"><p class="font-en text-indigo-600 mb-2 tracking-wider">— PRICING —</p><h2 class="text-3xl md:text-4xl font-bold">料金プラン</h2></div>
+    <div class="text-center mb-20">
+      <p class="font-en text-indigo-600 mb-3 tracking-[0.3em] text-sm reveal">— PRICING —</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 reveal">料金プラン</h2>
+      <p class="text-slate-600 reveal reveal-delay-1">LP 制作 3 プラン (ココナラ / Lancers どちらも対応)</p>
+    </div>
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white p-8 rounded-2xl border border-slate-200"><h3 class="text-xl font-bold mb-2">Light</h3><p class="text-3xl font-bold gradient-text mb-1">¥30,000<span class="text-base text-slate-500">〜</span></p><p class="text-xs text-slate-500 mb-6">ファーストビュー + 1-2 セクション</p><ul class="text-sm text-slate-600 space-y-2 mb-6"><li>✓ コンセプト設計</li><li>✓ Hero + 1-2 セクション</li><li>✓ スマホ最適化</li><li>✓ 公開 (Vercel)</li><li>✓ 修正 2 回まで</li></ul><p class="text-xs text-slate-400">納期 3-5 日</p></div>
-      <div class="bg-white p-8 rounded-2xl border-2 border-indigo-500 relative shadow-xl"><div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-pink-500 text-white text-xs px-3 py-1 rounded-full">人気</div><h3 class="text-xl font-bold mb-2">Standard</h3><p class="text-3xl font-bold gradient-text mb-1">¥80,000<span class="text-base text-slate-500">〜</span></p><p class="text-xs text-slate-500 mb-6">フル LP (5-7 セクション)</p><ul class="text-sm text-slate-600 space-y-2 mb-6"><li>✓ Light の全内容</li><li>✓ フル LP 5-7 セクション</li><li>✓ お問い合わせフォーム</li><li>✓ Google Analytics 連携</li><li>✓ 修正 3 回まで</li><li>✓ 編集マニュアル付き</li></ul><p class="text-xs text-slate-400">納期 1-2 週間</p></div>
-      <div class="bg-white p-8 rounded-2xl border border-slate-200"><h3 class="text-xl font-bold mb-2">Premium</h3><p class="text-3xl font-bold gradient-text mb-1">¥200,000<span class="text-base text-slate-500">〜</span></p><p class="text-xs text-slate-500 mb-6">複数ページ + CMS / 予約システム</p><ul class="text-sm text-slate-600 space-y-2 mb-6"><li>✓ Standard の全内容</li><li>✓ 複数ページ (5 ページ程度)</li><li>✓ CMS 連携 (microCMS等)</li><li>✓ 予約 / 決済 システム</li><li>✓ 独自ドメイン設定</li><li>✓ 1 ヶ月 保守付き</li></ul><p class="text-xs text-slate-400">納期 3-4 週間</p></div>
+      <div class="bg-white p-10 rounded-2xl border border-slate-200 reveal">
+        <h3 class="text-xl font-bold mb-2">Light</h3>
+        <p class="text-4xl font-bold gradient-text mb-1 font-en">¥30,000<span class="text-base text-slate-500">〜</span></p>
+        <p class="text-xs text-slate-500 mb-6">ファーストビュー + 1-2 セクション</p>
+        <ul class="text-sm text-slate-600 space-y-3 mb-6">
+          <li>✓ コンセプト設計</li>
+          <li>✓ Hero + 1-2 セクション</li>
+          <li>✓ スマホ最適化</li>
+          <li>✓ 公開 (Vercel)</li>
+          <li>✓ 修正 2 回まで</li>
+        </ul>
+        <p class="text-xs text-slate-400 pt-4 border-t border-slate-100">納期 3-5 日</p>
+      </div>
+      <div class="bg-white p-10 rounded-2xl border-2 border-indigo-500 relative shadow-2xl reveal reveal-delay-1">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 gradient-bg text-white text-xs px-4 py-1.5 rounded-full font-medium">最も人気</div>
+        <h3 class="text-xl font-bold mb-2">Standard</h3>
+        <p class="text-4xl font-bold gradient-text mb-1 font-en">¥80,000<span class="text-base text-slate-500">〜</span></p>
+        <p class="text-xs text-slate-500 mb-6">フル LP (5-7 セクション)</p>
+        <ul class="text-sm text-slate-600 space-y-3 mb-6">
+          <li>✓ Light の全内容</li>
+          <li>✓ フル LP 5-7 セクション</li>
+          <li>✓ お問い合わせフォーム</li>
+          <li>✓ Google Analytics 連携</li>
+          <li>✓ 修正 3 回まで</li>
+          <li>✓ 編集マニュアル付き</li>
+        </ul>
+        <p class="text-xs text-slate-400 pt-4 border-t border-slate-100">納期 1-2 週間</p>
+      </div>
+      <div class="bg-white p-10 rounded-2xl border border-slate-200 reveal reveal-delay-2">
+        <h3 class="text-xl font-bold mb-2">Premium</h3>
+        <p class="text-4xl font-bold gradient-text mb-1 font-en">¥200,000<span class="text-base text-slate-500">〜</span></p>
+        <p class="text-xs text-slate-500 mb-6">複数ページ + CMS / 予約システム</p>
+        <ul class="text-sm text-slate-600 space-y-3 mb-6">
+          <li>✓ Standard の全内容</li>
+          <li>✓ 複数ページ (5 ページ程度)</li>
+          <li>✓ CMS 連携 (microCMS等)</li>
+          <li>✓ 予約 / 決済 システム</li>
+          <li>✓ 独自ドメイン設定</li>
+          <li>✓ 1 ヶ月 保守付き</li>
+        </ul>
+        <p class="text-xs text-slate-400 pt-4 border-t border-slate-100">納期 3-4 週間</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="py-24 px-6 bg-slate-900 text-white">
-  <div class="max-w-3xl mx-auto text-center">
+<section id="contact" class="py-32 px-6 bg-slate-950 text-white relative overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] glow opacity-30"></div>
+  <div class="max-w-3xl mx-auto text-center relative">
     <h2 class="text-3xl md:text-5xl font-bold mb-6">まずはご相談から。</h2>
-    <p class="text-slate-300 mb-10 leading-relaxed">ご予算・納期・参考サイトなどをお聞かせいただければ、<br>24 時間以内にお見積もりとご提案をお返しします。</p>
+    <p class="text-slate-300 mb-12 leading-relaxed text-lg">
+      ご予算・納期・参考サイトなどをお聞かせいただければ、<br>
+      24 時間以内にお見積もりとご提案をお返しします。
+    </p>
     <div class="flex gap-4 justify-center flex-wrap">
-      <a href="https://coconala.com/users/4960428" target="_blank" class="btn-primary text-white px-8 py-4 rounded-lg font-medium">ココナラから依頼</a>
-      <a href="https://www.lancers.jp/profile/hokuto_ai_dev" target="_blank" class="px-8 py-4 rounded-lg border border-white/30 hover:bg-white/10 transition">Lancers から依頼</a>
+      <a href="https://coconala.com/users/4960428" target="_blank" rel="noopener" class="btn-primary text-white px-10 py-4 rounded-lg font-medium">ココナラから依頼 →</a>
+      <a href="https://www.lancers.jp/profile/hokuto_ai_dev" target="_blank" rel="noopener" class="px-10 py-4 rounded-lg border border-white/30 hover:bg-white/10 transition">Lancers から依頼</a>
     </div>
-    <p class="text-xs text-slate-500 mt-8">※ ココナラ / Lancers いずれかでご契約・お支払いいただきます (個人情報・金銭やり取りの安全性のため)。</p>
+    <p class="text-xs text-slate-500 mt-10">※ ココナラ / Lancers いずれかでご契約・お支払いいただきます (個人情報・金銭やり取りの安全性のため)。</p>
   </div>
 </section>
 
-<footer class="bg-slate-950 text-slate-400 py-10 px-6 text-center">
-  <p class="font-en text-2xl text-white mb-2">Hokuto.dev</p>
+<footer class="bg-slate-900 text-slate-400 py-12 px-6 text-center">
+  <p class="font-en text-2xl text-white mb-2">Hokuto<span class="text-pink-500">.dev</span></p>
   <p class="text-xs">© 2026 北斗 — LP / Web 制作ポートフォリオ</p>
 </footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
