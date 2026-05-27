@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cafe Kotori | 鎌倉、海と緑のあいだの隠れ家カフェ</title>
+<meta name="description" content="鎌倉・由比ヶ浜から徒歩 7 分。自家焙煎スペシャルティコーヒーと、季節の野菜を使った焼き菓子の店。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Noto Serif JP', serif; color: #3e2c1f; background: #faf5ee; }
+.font-en { font-family: 'Playfair Display', serif; font-style: italic; }
+.btn-primary { background: #8b5a3c; transition: all .3s; }
+.btn-primary:hover { background: #6f4530; transform: translateY(-2px); }
+.hero-overlay { background: linear-gradient(180deg, rgba(62,44,31,0) 0%, rgba(62,44,31,0.4) 100%); }
+.card { transition: all .3s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(62,44,31,0.12); }
+.bean-bg { background: radial-gradient(ellipse at center, #d4a574 0%, #8b5a3c 100%); }
+</style>
+</head>
+<body>
+<header class="fixed top-0 w-full bg-amber-50/80 backdrop-blur z-50 border-b border-amber-200/50">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="font-en text-2xl text-amber-900">Cafe Kotori</div>
+    <div class="hidden md:flex gap-8 text-sm tracking-wider text-amber-900"><a href="#about" class="hover:text-amber-700">ABOUT</a><a href="#menu" class="hover:text-amber-700">MENU</a><a href="#gallery" class="hover:text-amber-700">GALLERY</a><a href="#access" class="hover:text-amber-700">ACCESS</a></div>
+  </nav>
+</header>
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bean-bg"></div>
+  <div class="absolute inset-0 hero-overlay"></div>
+  <div class="relative z-10 text-center text-white px-6 max-w-3xl">
+    <p class="font-en text-2xl md:text-3xl mb-4 opacity-90">— Welcome to —</p>
+    <h1 class="text-5xl md:text-7xl mb-8 leading-tight font-medium">Cafe Kotori</h1>
+    <p class="text-lg md:text-xl leading-relaxed opacity-95 mb-10">鎌倉、海と緑のあいだの<br>小さな隠れ家カフェ</p>
+    <a href="#menu" class="inline-block bg-white/20 backdrop-blur border border-white/40 hover:bg-white/30 text-white px-10 py-4 rounded-full">メニューを見る</a>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-3xl animate-bounce">↓</div>
+</section>
+<section id="about" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <p class="font-en text-amber-700 mb-3 text-xl">— Story —</p>
+      <h2 class="text-3xl md:text-4xl mb-6 leading-snug font-medium">小鳥が遊びにくる、<br>静かなカフェ。</h2>
+      <p class="text-amber-900/80 leading-loose mb-4">Cafe Kotori は、鎌倉・由比ヶ浜のすぐ近くにある、小さな築 80 年の古民家カフェです。</p>
+      <p class="text-amber-900/80 leading-loose mb-4">毎朝、自分で焙煎したスペシャルティコーヒーと、地元の農家さんから届く季節の野菜・果物を使った焼き菓子を、ゆっくりお楽しみいただけます。</p>
+      <p class="text-amber-900/80 leading-loose">散歩の途中、本を読みに、ひとりの時間に。<br>どうぞ、肩の力を抜きにいらしてください。</p>
+    </div>
+    <div class="aspect-[4/5] bg-gradient-to-br from-amber-300 via-amber-500 to-amber-800 rounded-3xl shadow-2xl flex items-center justify-center text-9xl">☕</div>
+  </div>
+</section>
+<section id="menu" class="py-24 px-6 bg-amber-100/40">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-en text-amber-700 text-center mb-2 text-xl">— Menu —</p>
+    <h2 class="text-3xl md:text-4xl text-center mb-16 font-medium">本日のメニュー</h2>
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <div class="card bg-white p-8 rounded-2xl">
+        <p class="font-en text-amber-700 text-sm mb-2">— Coffee —</p>
+        <h3 class="text-2xl mb-6 font-medium">スペシャルティコーヒー</h3>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between"><span>本日のドリップ (3 種から選べる)</span><span class="text-amber-700 font-medium">¥600</span></div>
+          <div class="flex justify-between"><span>カフェラテ</span><span class="text-amber-700 font-medium">¥650</span></div>
+          <div class="flex justify-between"><span>カフェ ボワット (店主オリジナル)</span><span class="text-amber-700 font-medium">¥780</span></div>
+          <div class="flex justify-between"><span>季節のフルーツソーダ</span><span class="text-amber-700 font-medium">¥720</span></div>
+        </div>
+      </div>
+      <div class="card bg-white p-8 rounded-2xl">
+        <p class="font-en text-amber-700 text-sm mb-2">— Sweets —</p>
+        <h3 class="text-2xl mb-6 font-medium">焼き菓子・スイーツ</h3>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between"><span>カヌレ (鎌倉野菜)</span><span class="text-amber-700 font-medium">¥420</span></div>
+          <div class="flex justify-between"><span>季節のタルト (本日: 苺と紅茶)</span><span class="text-amber-700 font-medium">¥680</span></div>
+          <div class="flex justify-between"><span>古民家のチーズケーキ</span><span class="text-amber-700 font-medium">¥620</span></div>
+          <div class="flex justify-between"><span>スコーンと自家製クロテッドクリーム</span><span class="text-amber-700 font-medium">¥780</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <p class="text-sm text-amber-800/70 mb-2">※ メニューは月ごとに少しずつ入れ替わります</p>
+      <p class="text-sm text-amber-800/70">※ Instagram で毎週の本日メニューをご案内しています</p>
+    </div>
+  </div>
+</section>
+<section id="gallery" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-en text-amber-700 text-center mb-2 text-xl">— Gallery —</p>
+    <h2 class="text-3xl md:text-4xl text-center mb-16 font-medium">店内のようす</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="aspect-square bg-gradient-to-br from-amber-200 to-amber-500 rounded-2xl flex items-center justify-center text-6xl">☕</div>
+      <div class="aspect-square bg-gradient-to-br from-amber-300 to-orange-600 rounded-2xl flex items-center justify-center text-6xl">🥐</div>
+      <div class="aspect-square bg-gradient-to-br from-orange-200 to-amber-700 rounded-2xl flex items-center justify-center text-6xl">🍰</div>
+      <div class="aspect-square bg-gradient-to-br from-amber-400 to-orange-800 rounded-2xl flex items-center justify-center text-6xl">🌿</div>
+      <div class="aspect-square bg-gradient-to-br from-orange-300 to-amber-600 rounded-2xl flex items-center justify-center text-6xl">📖</div>
+      <div class="aspect-square bg-gradient-to-br from-amber-200 to-amber-700 rounded-2xl flex items-center justify-center text-6xl">🍂</div>
+      <div class="aspect-square bg-gradient-to-br from-amber-500 to-orange-700 rounded-2xl flex items-center justify-center text-6xl">🐦</div>
+      <div class="aspect-square bg-gradient-to-br from-orange-400 to-amber-800 rounded-2xl flex items-center justify-center text-6xl">🏠</div>
+    </div>
+  </div>
+</section>
+<section id="access" class="py-24 px-6 bg-amber-900 text-amber-50">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+    <div>
+      <p class="font-en text-amber-300 mb-3 text-xl">— Access —</p>
+      <h2 class="text-3xl mb-6 font-medium">ご来店情報</h2>
+      <div class="space-y-4 text-amber-100">
+        <p>〒248-0014</p>
+        <p>神奈川県鎌倉市由比ヶ浜 3-12-8</p>
+        <p>江ノ電「由比ヶ浜」駅 徒歩 7 分</p>
+        <p class="pt-4">営業時間 10:00 - 18:00</p>
+        <p>定休日: 火曜・水曜</p>
+        <p class="pt-4 text-sm opacity-70">※ 1 階 4 席・2 階 8 席の小さな店です。<br>※ 混雑時はお待ちいただく場合があります。</p>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-xl mb-4 font-medium">SNS</h3>
+      <div class="space-y-3">
+        <a href="#" class="flex items-center gap-3 bg-amber-50/10 hover:bg-amber-50/20 p-4 rounded-xl transition"><span class="text-2xl">📷</span><span>Instagram @cafe_kotori_kamakura</span></a>
+        <a href="#" class="flex items-center gap-3 bg-amber-50/10 hover:bg-amber-50/20 p-4 rounded-xl transition"><span class="text-2xl">🐦</span><span>X (Twitter) @cafe_kotori</span></a>
+      </div>
+      <p class="text-sm text-amber-300/80 mt-6">毎週の本日メニューと、小鳥の写真をご案内しています。</p>
+    </div>
+  </div>
+</section>
+<footer class="bg-amber-950 text-amber-200 py-10 px-6 text-center">
+  <p class="font-en text-2xl mb-3">Cafe Kotori</p>
+  <p class="text-sm opacity-70 mb-2">鎌倉、海と緑のあいだの隠れ家カフェ</p>
+  <p class="text-xs opacity-50">© 2026 Cafe Kotori. All rights reserved. — Designed by 北斗</p>
+</footer>
+</body>
+</html>
